@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>React Timer</title>
+ 
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+ 
+  <script type="text/babel">
+ 
+    const TimerDisplay = () => {
+      return (
+        <div className="timerDisplay">
+          What's the time?
+        </div>
+      );
+    }
+ 
+  ReactDOM.render(
+    <TimerDisplay />,
+    document.getElementById("timer-content")
+  );
+ 
+  </script>
+</head>
+<body>
+  <div id="timer-content"></div>
+</body>
+</html>
