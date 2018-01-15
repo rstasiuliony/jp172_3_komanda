@@ -9,10 +9,16 @@
         }*/
         
         function Stars(props){
-          const starNums = Array.apply(null, {length: props}).map((x, y) => y + 1);
+          const starNums = Array.apply(null, {length: props.rating}).map((x, y) => y + 1);
           return wire()`
             <div className="rating">
-              ${starNums.map(x => x)}
+              ${starNums.map(number => {
+                var idemId = props.bookid + "star" + props.id;
+//                return wire(number)`
+//                    <input type="radio" id=${itemId} name=${props.bookid} value=${props.value} />
+//                    <label htmlFor=${itemId}></label>`;
+                return number;
+              })}
              </div>`;
         }
       
@@ -25,7 +31,7 @@
               <a href="#"><img src=${imgFile} alt=${imgName}/></a>
               <p class="bookName"><a href="#">${props.name}</a></p>
               <p>by <a href="#">{props.author}</a></p>
-              ${Stars(props.rating)}
+              ${Stars({bookid: itemId, rating: props.rating})}
             </div>`;
         }
     
