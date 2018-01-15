@@ -14,10 +14,6 @@
 
 	<!--Required for stars rating and for menu icons:-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="js/react.js"></script>
-  <script src="js/react-dom.js"></script>
-  <script src="js/babel.js"></script>
-  <script src="js/bookList.js"></script>
 </head>
 
 <body onload="index()">
@@ -31,13 +27,13 @@
 				<!-- Links to be added:-->
 				<li><a href="#">Help Center</a></li>
 				<li><a href="#">Our Support</a></li>
-				<li ><a href="login.html" id="replace">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
+				<li id="replace"><a href="login.html">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
 					<!--Place for drop down.
 					<ul class="topdown">
 					</ul>
 -->
 				</li>
-                <li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
+				<li id="logout" style="visibility: hidden" onclick="logout()">Logout</li>
 			</ul>
 		</div>
 		<script src="js/login.js"></script>
@@ -110,7 +106,11 @@
 			</li>
 		</ul>
 	</footer>
-  <script src="js/bookListGen.js" type="text/babel"></script>
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="babel.js"></script>
+  <script src="bookList.js"></script>
+  <script src="bookListGen.js" type="text/babel"></script>
 </body>
 
 </html>

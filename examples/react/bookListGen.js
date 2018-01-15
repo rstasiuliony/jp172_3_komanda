@@ -53,10 +53,19 @@ function BookList(props) {
   );
 }
 
-ReactDOM.render(
-  <BookList books={bookList} />, 
-  document.getElementById("booklist")
-);
 
+function run() {
+  ReactDOM.render(
+    <BookList books={bookList} />, 
+    document.getElementById("bookList")
+  );
+}
 
+const loadedStates = ['complete', 'loaded', 'interactive'];
+
+if (loadedStates.includes(document.readyState) && document.body) {
+  run();
+} else {
+  window.addEventListener('DOMContentLoaded', run, false);
+}
 
