@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>React Timer</title>
+
+  <script src="react.js"></script>
+  <script src="react-dom.js"></script>
+  <script src="babel.js"></script>
+  <script src="bookList.js"></script>
+
+  <script type="text/babel">
+  
+    function ListItem(props) {
+      // Correct! There is no need to specify the key here:
+      return <li>{props.value}</li>;
+    }
+
+    function NumberList(props) {
+      const numbers = props.numbers;
+      const listItems = numbers.map((number) =>
+        // Correct! Key should be specified inside the array.
+        <ListItem key={number.toString()}
+                  value={number} />
+      );
+      return (
+        <ul>
+          {listItems}
+        </ul>
+      );
+    }
+
+    var numbers = Array.apply(null, {length: 5}).map((x, y) => y + 1);
+    Array.apply(null, {length: 0}).map((x, y) => y + 1);
+    ReactDOM.render(
+      <NumberList numbers={numbers} />,
+      document.getElementById('proper-list-render1')
+    );
+
+    numbers = Array.apply(null, {length: 10}).map((x, y) => y + 1);
+    ReactDOM.render(
+      <NumberList numbers={numbers} />,
+      document.getElementById('proper-list-render2')
+    );
+
+  </script>
+</head>
+
+<body>
+  <div id="proper-list-render1"></div>
+  <div id="proper-list-render2"></div>
+</body>
+
+</html>
