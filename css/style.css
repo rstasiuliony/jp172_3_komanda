@@ -167,7 +167,7 @@ a {
 }
 
 .inlinemenu {
-	width: 50%;
+	float:left;
 	display: inline;
 }
 
@@ -180,9 +180,8 @@ a {
 	float: right;
 	display: inline;
 	position: relative;
-    width: 50%;
     box-sizing: border-box;
-/*	margin-right: 120px;*/
+	margin-right: 10px;
 	font-size: 16px;
 
 }
@@ -255,12 +254,13 @@ a {
 
 .wholeblock {
 	margin-left: 30px;
+    clear:both;
 }
 
 /*footer navigation*/
 
 .w3-button {
-	border: 10px aqua;
+	border: 10px;
 
 	display: inline;
 	border-radius: 80px;
