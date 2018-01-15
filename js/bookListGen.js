@@ -1,8 +1,8 @@
 function Star(props) {
-  var itemId = "star" + props.id;
+  var itemId = props.bookid + "star" + props.id;
   return (
     <div>
-      <input type="radio" id={itemId} name="rating" value={props.value} />
+      <input type="radio" id={itemId} name={props.bookid} value={props.value} />
       <label htmlFor={itemId}></label>
     </div>
   );
@@ -11,7 +11,7 @@ function Star(props) {
 function StarList(props) {
   const starNums = Array.apply(null, {length: props.rating}).map((x, y) => y + 1);
   const listItems = starNums.map((number) =>
-    <Star key={number.toString()} id={number.toString()}
+    <Star key={number.toString()} id={number.toString()} bookid={props.bookid}
               value={number} />
   );
   return (
@@ -30,7 +30,7 @@ function Book(props) {
       <a href="#"><img src={imgFile} alt={imgName}/></a>
       <p className="bookName"><a href="#">{props.name}</a></p>
       <p>by <a href="#">{props.author}</a></p>
-      <StarList rating={props.rating} />
+      <StarList bookid={itemId} rating={props.rating} />
     </div>
   );
 }
