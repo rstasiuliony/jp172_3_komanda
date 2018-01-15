@@ -3,7 +3,7 @@
 body {
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 13% 87%;
+	grid-template-columns: 15% 85%;
 	grid-template-rows: 10% 80% 10%;
 }
 
@@ -67,10 +67,12 @@ header {
 	background-color: #202538;
 }
 
+/*
 .topmenu li:last-of-type {
 	padding: 0 10px 0 15px;
 
 }
+*/
 
 a {
 	text-decoration: none;
@@ -165,7 +167,7 @@ a {
 }
 
 .inlinemenu {
-	width: 80%;
+	float:left;
 	display: inline;
 }
 
@@ -178,7 +180,8 @@ a {
 	float: right;
 	display: inline;
 	position: relative;
-	margin-right: 120px;
+    box-sizing: border-box;
+	margin-right: 10px;
 	font-size: 16px;
 
 }
@@ -251,12 +254,13 @@ a {
 
 .wholeblock {
 	margin-left: 30px;
+    clear:both;
 }
 
 /*footer navigation*/
 
 .w3-button {
-	border: 10px aqua;
+	border: 10px;
 
 	display: inline;
 	border-radius: 80px;
