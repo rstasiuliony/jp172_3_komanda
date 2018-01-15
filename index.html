@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bookstore</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
+
+	<!-- To be added link to CSS:  -->
+	<link href="css/style.css" rel="stylesheet">
+	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+
+	<!--Required for stars rating and for menu icons:-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="index()">
+	<!--Top black bar:-->
+	<header class="top">
+		<div id="name">
+			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+		</div>
+		<div class="headermenu">
+			<ul class="topmenu">
+				<!-- Links to be added:-->
+				<li><a href="#">Help Center</a></li>
+				<li><a href="#">Our Support</a></li>
+				<li id="replace"><a href="login.html">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
+					<!--Place for drop down.
+					<ul class="topdown">
+					</ul>
+-->
+				</li>
+				<li id="logout" style="visibility: hidden" onclick="logout()">Logout</li>
+			</ul>
+		</div>
+		<script src="js/login.js"></script>
+
+	</header>
+
+	<!--Left side bar:-->
+	<nav class="sidenav">
+		<div class="navmenu">
+			<ul class="mainmenu">
+				<!-- Links to be added:-->
+				<li><a href="#"><i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a></li>
+				<li><a href="#"><i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a></li>
+				<li><a href="#"><i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a></li>
+				<li><a href="#"><i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main>
+		<!--Top grey part:-->
+
+		<h2 id="browse">Browse Available Books</h2>
+		<div class="toppart">
+			<ul class="inlinemenu">
+				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
+				<li><a href="#">All Books</a></li>
+				<li><a href="#">Most Recent</a></li>
+				<li><a href="#">Most Popular</a></li>
+				<li><a href="#">Free Books</a></li>
+			</ul>
+			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
+			<div class="search-container">
+
+				<span class="fa fa-search"></span>
+				<input placeholder="Enter Keywords">
+
+
+			</div>
+
+		</div>
+
+		<!--Books part:-->
+		<div class="wholeblock">
+			<!-- Links to be added-->
+			<!-- For stars please use color: orange-->
+			<div class="book" id="first">
+				<a href="#">
+                        <img src="images/cakes_and_bakes.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Cakes &#38; Bakes</a></p>
+				<p>by <a href="#">Sanjeev Kapoor</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="second">
+				<a href="#">
+                        <img src="images/cook_like_an_italian.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Cool Like an Italian</a></p>
+				<p>by <a href="#">Tobie Puttock</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="third">
+				<a href="#">
+                        <img src="images/inexpensive_family_meals.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Inexpensive Family Meals</a></p>
+				<p>by <a href="#">Simon Holst</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="fourth">
+				<a href="#">
+                        <img src="images/jamie_does.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Jamie Does</a></p>
+				<p>by <a href="#">Jamie Oliver</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="fifth">
+				<a href="#">
+                        <img src="images/jamies_italy.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Jamie&#39;s Italy</a></p>
+				<p>by <a href="#">Jamie Oliver</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="six">
+				<a href="#">
+                        <img src="images/jamies_kitchen.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Jamie&#39;s Kitchen</a></p>
+				<p>by <a href="#">Jamie Oliver</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="seventh">
+				<a href="#">
+                        <img src="images/jewels_of_nizam.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Jewels of Nizam</a></p>
+				<p>by <a href="#">Geeta Devi</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="eight">
+				<a href="#">
+                        <img src="images/paleo_slow_cooking.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Paleo Slow Cooking</a></p>
+				<p>by <a href="#">Chrissy Gower</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="nine">
+				<a href="#">
+                        <img src="images/suneeta_vaswani.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Suneeta Vaswani</a></p>
+				<p>by <a href="#">Geeta Devi</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+			<div class="book" id="tenth">
+				<a href="#">
+                        <img src="images/vegetables_cookbook.png" alt="book"/>
+                    </a>
+				<p class="bookName"><a href="#">Vegetables Cookbook</a></p>
+				<p>by <a href="#">Matthew Biggs</a></p>
+				<div class="rating">
+					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<!--Footer part:-->
+		<!--        Bubbles:-->
+		<div class="cont" id=" container">
+			<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			<div class="object1" id="one"></div>
+			<div class="object2" id="two"></div>
+			<div class="object3" id="three"></div>
+
+
+			<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+		</div>
+		<!--       Other:-->
+
+		<ul class="help">
+			<li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+				<!--place for down-top menu of settings
+				<ul class="downtop">
+					 
+				</ul>
+-->
+			</li>
+		</ul>
+	</footer>
+</body>
+
+</html>
