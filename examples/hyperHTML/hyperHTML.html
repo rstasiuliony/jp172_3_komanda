@@ -1,73 +1,11 @@
 <!doctype html>
 <html>
 <head>
-  <script src="https://unpkg.com/hyperhtml@2.4.3/min.js"></script>
+  <script src="hyperhtml.js"></script>
 </head>
 <body>
   <p>Labas</p>
   <div id="bookList"></div>
   <script src="bookList.js"></script>
-  <script>
-    
-    const {bind, wire} = hyperHTML;
-
-    function Star(props) {
-      var itemid = "star" + props.number.toString();
-      return wire(props)`
-          <input type="radio" id=${"star" + props.number} name="rating" value={props.number} />
-          <label htmlFor=${"star" + props.number}></label>`;
-    }
-    
-    function StarList(props){
-      const starNums = Array.apply(null, {length: props.rating}).map((x, y) => y + 1);
-      return wire(starNums)`<div className="rating">${
-        // fill it up with wired items
-        starNums.map(number =>
-          wire(number)`${Star(number)}`
-        )
-      }</div>`;
-    }
-  
-    bind(document.querySelector('#bookList'))`
-      ${StarList({rating:5})}`;
-
-/*    function Book(props) {
-      var itemId = `book${props.id}`;
-      var imgName = `${props.image}`;
-      var imgFile = `images/${props.image}`;
-      return (
-        <div className="book" id={itemId}>
-          <a href="#"><img src={imgFile} alt={imgName}/></a>
-          <p className="bookName"><a href="#">{props.name}</a></p>
-          <p>by <a href="#">{props.author}</a></p>
-          <StarList rating={props.rating} />
-        </div>
-      );
-    }
-  
-    function Book(props) {
-      var itemId = `book${props.id}`;
-      var imgName = `${props.image}`;
-      var imgFile = `images/${props.image}`;
-      return wire()`
-        <div class="book" id={itemId}>
-          <a href="#"><img src={imgFile} alt={imgName}/></a>
-          <p class="bookName"><a href="#">{props.name}</a></p>
-          <p>by <a href="#">{props.author}</a></p>
-          ${StarList(props.rating)}
-        </div>`;
-    }
-
-    function BookList(props) {
-      return wire(props)`
-        <div className="wholeblock">${
-          props.books.map(book => wire(book)`${Book(book)}`)
-        }</div>`;
-    } 
-
-    
-    bind(document.querySelector('#bookList'))`
-      ${BookList(bookList)}`;*/
-  
-</script>
+  <script src="bookListGen.js"></script>
 </html>
