@@ -257,6 +257,11 @@ a {
     clear:both;
 }
 
+img{
+    width:200px;
+    height: 275px;
+}
+
 /*footer navigation*/
 
 .w3-button {

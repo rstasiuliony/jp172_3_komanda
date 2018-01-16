@@ -68,5 +68,68 @@ var bookList = [
         author : "Matthew Biggs", 
         image  : "vegetables_cookbook.png", 
         rating : 3.5
+    },
+     {
+        id     : 11,
+        name   : "A man called Ove", 
+        author : "Fredrick Backman", 
+        image  : "a_man_called_ove.png", 
+        rating : 4.5
+    },
+    {
+        id     : 12,
+        name   : "All the light we cannot see", 
+        author : "Anthony Doerr", 
+        image  : "all_the_light_we_cannot_see.png", 
+        rating : 3
+    },
+     {
+        id     : 13,
+        name   : "Hillbilly Elegy", 
+        author : "J. D. Vance", 
+        image  : "hillbilly_elegy.png", 
+        rating : 4
+    },
+    {
+        id     : 14,
+        name   : "Leonardo Da Vinci", 
+        author : "Walter Isaacson", 
+        image  : "leonardo_da_vinci.png", 
+        rating : 4.5
+    },
+     {
+        id     : 16,
+        name   : "The catcher in the rye", 
+        author : "J. D. Salinger", 
+        image  : "the_catcher_in_the_rye.png", 
+        rating : 4
+    },
+    {
+        id     : 17,
+        name   : "To kill a mockingbird", 
+        author : "Harper Lee", 
+        image  : "to_kill_a_mockingbird.png", 
+        rating : 4
+    },
+    {
+        id     : 18,
+        name   : "Wonder", 
+        author : "R. J. Palacio", 
+        image  : "wonder.png", 
+        rating : 4
+    },
+    {
+        id     : 19,
+        name   : "Jesus calling", 
+        author : "Sarah Young", 
+        image  : "jesus_calling.png", 
+        rating : 3
+    },
+    {
+        id     : 20,
+        name   : "The subtile art of not giving a fuck", 
+        author : "Mark Manson", 
+        image  : "the_subtile_art_of_not_giving_a_fuck.png", 
+        rating : 3.5
     }
 ];
