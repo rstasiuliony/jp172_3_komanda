@@ -2,47 +2,57 @@
 <html lang="en">
 
 <head>
-	<title>Bookstore</title>
-	<meta charset="utf-8">
-	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
-	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
+    <title>Bookstore</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+    <meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
 
-	<!-- To be added link to CSS:  -->
-	<link href="css/style.css" rel="stylesheet">
-	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <!-- To be added link to CSS:  -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
-	<!--Required for stars rating and for menu icons:-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="js/react.js"></script>
-  <script src="js/react-dom.js"></script>
-  <script src="js/babel.js"></script>
-  <script src="js/bookList.js"></script>
+    <!--Required for stars rating and for menu icons:-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/babel.js"></script>
+    <script src="js/bookList.js"></script>
 </head>
 
 <body onload="index()">
-	<!--Top black bar:-->
-	<header class="top">
-		<div id="name">
-			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
-		</div>
-		<div class="headermenu">
-			<ul class="topmenu">
-				<!-- Links to be added:-->
-				<li><a href="#">Help Center</a></li>
-				<li><a href="#">Our Support</a></li>
-				<li ><a href="login.html" id="replace">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
-					<!--Place for drop down.
-					<ul class="topdown">
-					</ul>
--->
-				</li>
+    <!--Top black bar:-->
+    <header class="top">
+        <div id="name">
+            <p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+        </div>
+        <div class="headermenu">
+            <ul class="topmenu">
+                <!-- Links to be added:-->
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Our Support</a></li>
+                <li><a id="replace" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content">
+                            <div class="w3-container">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                <div class="include-login-html">
+                                    <script type="text/javascript">
+                                        $(".include-login-html").load("login.html");
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
-			</ul>
-		</div>
-		<script src="js/login.js"></script>
+            </ul>
+        </div>
+        <script src="js/login.js"></script>
 
-	</header>
+    </header>
 
 	<!--Left side bar:-->
 	<nav class="sidenav">
@@ -63,7 +73,6 @@
 		<h2 id="browse">Browse Available Books</h2>
 		<div class="toppart">
 			<ul class="inlinemenu">
-				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
 				<li><a href="#" id="allBooks">All Books</a></li>
 				<li><a href="#" id="recentBooks">Most Recent</a></li>
 				<li><a href="#" id="popularBooks">Most Popular</a></li>
@@ -71,18 +80,14 @@
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
-
 				<span class="fa fa-search"></span>
 				<input placeholder="Enter Keywords">
-
-
 			</div>
-
 		</div>
 
 		<!--Books part:-->
-    <div id="bookList">
-    </div>
+		<div id="bookList">
+		</div>
 	</main>
 
 	<footer>
@@ -110,19 +115,10 @@
 			</li>
 		</ul>
 	</footer>
-  <script src="js/bookListGen.js" type="text/babel"></script>
-  <script type="text/babel">
-document.getElementsByTagName("body")[0].onload=function(){
-    myFunction(bookList)};
-    document.getElementById("allBooks").onclick=function(){
-    myFunction(bookList)};
-    document.getElementById("recentBooks").onclick=function(){
-    myFunction(recentbookList)};
-    document.getElementById("popularBooks").onclick=function(){
-    myFunction(popularbookList)};
-    document.getElementById("freeBooks").onclick=function(){
-    myFunction(freebookList)};
-    </script>
+	<script src="js/bookListGen.js" type="text/babel"></script>
+	<script type="text/babel">
+		document.getElementsByTagName("body")[0].onload=function(){ myFunction(bookList)}; document.getElementById("allBooks").onclick=function(){ myFunction(bookList)}; document.getElementById("recentBooks").onclick=function(){ myFunction(recentbookList)}; document.getElementById("popularBooks").onclick=function(){ myFunction(popularbookList)}; document.getElementById("freeBooks").onclick=function(){ myFunction(freebookList)};
+	</script>
 </body>
 
 </html>

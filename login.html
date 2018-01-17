@@ -2,50 +2,53 @@
 <html lang="en">
 
 <head>
-	<title>Bookstore</title>
-	<meta charset="utf-8">
-	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
-	<meta name="description" content="Login and Sign Up form.">
+    <title>Bookstore</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+    <meta name="description" content="Login and Sign Up form.">
 
-	<!-- To be added link to CSS:  -->
-	<link href="#" rel="stylesheet">
-	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <link href="css/login.css" rel="stylesheet">
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
 </head>
 
 <body>
-	<main class="mainloginclass">
-		<div><p id="result"></p></div>
-		<p id="comingback">Enter your credentials</p>
-		<div class="login">
-			<label><b>Username</b></label>
-			<input type="text" id="loginname" required value="" />
+    <main class="mainloginclass">
+        <div>
+            <p id="result"></p>
+        </div>
+        <div class="huglogin">
+            <h3 class="text" id="comingback">Enter your credentials</h3>
+            <div class="login">
+                <label><h6>Username:</h6></label>
+                <input class="labely" type="text" id="loginname" required value="" />
 
-			<label><b>Password</b></label>
-			<input type="password" id="loginpsw" required value="" />
+                <label><h6>Password:</h6></label>
+                <input class="labely" type="password" id="loginpsw" required value="" />
+                <button type="submit" onclick="login()" class="btnn">Login</button>
+            </div>
+        </div>
+        <br /> <hr />
+        <div class="hugsignup">
+            <h3 class="text" id="signup">Sign Up if you are here for the first time</h3>
+            <div class="register">
+                <label><h6>Username:</h6></label>
+                <input class="labely" type="text" id="uname" required value="" />
 
-			<button type="submit" onclick="login()">Login</button>
-		</div>
-		<p id="signup">Sign Up if you are here for the first time</p>
-		<div class="register">
-			<label><b>Username</b></label>
-			<input type="text" id="uname" required value="" />
-			
-			<label><b>Password</b></label>
-			<input type="password" id="psw" required value="" />
-			
-			<label><b>Repeat password</b></label>
-			<input type="password" id="rpsw" required value="" />
-			
-			<label><b>Email address</b></label>
-			<input type="email" id="address" required value="" />
+                <label><h6>Password:</h6></label>
+                <input class="labely" type="password" id="psw" required value="" />
 
-			<button type="submit" onclick="sign()">Sign Up</button>
-		</div>
+                <label><h6>Repeat password:</h6></label>
+                <input class="labely" type="password" id="rpsw" required value="" />
 
-		<script src="js/login.js"></script>
-	</main>
+                <label><h6>Email address:</h6></label>
+                <input class="labely" type="email" id="address" required value="" />
+                <button type="submit" onclick="sign()" class="btnn">Sign Up</button>
+            </div>
+        </div>
+        <script src="js/login.js"></script>
+    </main>
 </body>
 
 </html>
