@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="babel.js"></script>
+    <!-- <script src="babel.js"></script> -->
+</head>
+<body>
+    <div id="out"></div>
     <script type="module">
         import {attributeToProperty} from './ha2p.js';
 
         const attrToProp = attributeToProperty(function(tagName, attrs, children){
             let result = tagName;
-            attrs.keys.map(key => result += ", " + key.toString() + " : " + attrs[key].toString()); 
-            children.map(value => result += ", " + value.toString());
+            Object.keys(attrs).map(key => result += "( " + key.toString() + " : " + attrs[key].toString()); 
+            children.map(value => result += "; " + 
+                (typeof value === "string" ? `"${value}"` : value.toString())+" )");
             return result;
         });
 
@@ -20,8 +24,5 @@
         document.querySelector("#out").innerHTML = out;
 
     </script>
-</head>
-<body>
-    <div id="out"></div>
 </body>
 </html>
