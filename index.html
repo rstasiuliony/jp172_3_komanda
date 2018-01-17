@@ -14,30 +14,42 @@
 
 	<!--Required for stars rating and for menu icons:-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="js/react.js"></script>
-  <script src="js/react-dom.js"></script>
-  <script src="js/babel.js"></script>
-  <script src="js/bookList.js"></script>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/babel.js"></script>
+	<script src="js/bookList.js"></script>
+	<script src="js/webStorage.js"></script>
+
 </head>
 
-<body onload="index()">
+<body id="body">
 	<!--Top black bar:-->
 	<header class="top">
 		<div id="name">
-			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+			<p>
+				<i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
 		</div>
 		<div class="headermenu">
 			<ul class="topmenu">
 				<!-- Links to be added:-->
-				<li><a href="#">Help Center</a></li>
-				<li><a href="#">Our Support</a></li>
-				<li ><a href="login.html" id="replace">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
+				<li>
+					<a href="#">Help Center</a>
+				</li>
+				<li>
+					<a href="#">Our Support</a>
+				</li>
+				<li>
+					<a href="login.html" id="replace">Login
+						<i class="fa fa-check-circle " aria-hidden="true"></i>
+					</a>
 					<!--Place for drop down.
 					<ul class="topdown">
 					</ul>
 -->
 				</li>
-                <li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
+				<li id="logout" style="visibility: hidden" onclick="logout()">
+					<a href="#">Logout</a>
+				</li>
 			</ul>
 		</div>
 		<script src="js/login.js"></script>
@@ -49,10 +61,22 @@
 		<div class="navmenu">
 			<ul class="mainmenu">
 				<!-- Links to be added:-->
-				<li><a href="#"><i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a></li>
-				<li><a href="#"><i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a></li>
-				<li><a href="#"><i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a></li>
-				<li><a href="#"><i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a></li>
+				<li>
+					<a href="#">
+						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -64,10 +88,18 @@
 		<div class="toppart">
 			<ul class="inlinemenu">
 				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
-				<li><a href="#">All Books</a></li>
-				<li><a href="#">Most Recent</a></li>
-				<li><a href="#">Most Popular</a></li>
-				<li><a href="#">Free Books</a></li>
+				<li>
+					<a href="#">All Books</a>
+				</li>
+				<li>
+					<a href="#">Most Recent</a>
+				</li>
+				<li>
+					<a href="#">Most Popular</a>
+				</li>
+				<li>
+					<a href="#">Free Books</a>
+				</li>
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
@@ -75,14 +107,13 @@
 				<span class="fa fa-search"></span>
 				<input placeholder="Enter Keywords">
 
-
 			</div>
 
 		</div>
 
 		<!--Books part:-->
-    <div id="bookList">
-    </div>
+		<div id="bookList">
+		</div>
 	</main>
 
 	<footer>
@@ -100,8 +131,15 @@
 		<!--       Other:-->
 
 		<ul class="help">
-			<li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
-			<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			<li>
+				<a href="#">
+					<i class="fa fa-question-circle" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="fa fa-cog" aria-hidden="true"></i>
+				</a>
 				<!--place for down-top menu of settings
 				<ul class="downtop">
 					 
@@ -110,7 +148,17 @@
 			</li>
 		</ul>
 	</footer>
-  <script src="js/bookListGen.js" type="text/babel"></script>
+	<script src="js/bookListGen.js" type="text/babel"></script>
+	<script type="text/babel">
+		document.getElementById("body").onload = function(){
+			bookListRun(bookList);
+		};
+		// document.getElementById("body").onload = function(){
+		// 	bookListRun(bookList);
+		// };
+		
+	</script>
+
 </body>
 
 </html>

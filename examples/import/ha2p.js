@@ -1,12 +1,13 @@
 //module.exports = attributeToProperty
 
-var transform = {
-  'class': 'className',
-  'for': 'htmlFor',
-  'http-equiv': 'httpEquiv'
-}
 
-export function attributeToProperty (h) {
+export default function attributeToProperty (h) {
+  const transform = {
+    'class': 'className',
+    'for': 'htmlFor',
+    'http-equiv': 'httpEquiv'
+  };
+
   return function (tagName, attrs, children) {
     for (var attr in attrs) {
       if (attr in transform) {
@@ -15,5 +16,5 @@ export function attributeToProperty (h) {
       }
     }
     return h(tagName, attrs, children)
-  }
+  };
 }
