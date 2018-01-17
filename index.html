@@ -17,7 +17,9 @@
 	<script src="js/react.js"></script>
 	<script src="js/react-dom.js"></script>
 	<script src="js/babel.js"></script>
+	<script src="js/jmespath.js"></script>
 	<script src="js/bookList.js"></script>
+	<script src="js/bookListGen.js" type="text/babel"></script>
 	<script src="js/webStorage.js"></script>
 
 </head>
@@ -88,24 +90,11 @@
 		<div class="toppart">
 			<ul class="inlinemenu">
 				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
-				<li>
-					<a href="#">All Books</a>
-				</li>
-				<li>
-					<a href="#">Most Recent</a>
-				</li>
-				<li>
-					<a href="#">Most Popular</a>
-				</li>
-				<li>
-					<a href="#">Free Books</a>
-				</li>
-=======
 				<li><a href="#" id="allBooks">All Books</a></li>
 				<li><a href="#" id="recentBooks">Most Recent</a></li>
 				<li><a href="#" id="popularBooks">Most Popular</a></li>
 				<li><a href="#" id="freeBooks">Free Books</a></li>
->>>>>>> develop
+
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
@@ -154,13 +143,22 @@
 			</li>
 		</ul>
 	</footer>
-  	<script src="js/bookListGen.js" type="text/babel"></script>
   	<script type="text/babel">
-		document.getElementsByTagName("body")[0].onload=function(){bookListRun(bookList)};
-		document.getElementById("allBooks").onclick=function(){bookListRun(bookList)};
-		document.getElementById("recentBooks").onclick=function(){bookListRun(recentbookList)};
-		document.getElementById("popularBooks").onclick=function(){bookListRun(popularbookList)};
-		document.getElementById("freeBooks").onclick=function(){bookListRun(freebookList)};
+		document.getElementById("allBooks").onclick=function(){
+			bookListRun(bookList)
+		};
+		document.getElementById("recentBooks").onclick=function(){
+			bookListRun(
+				jmespath.search(bookList, "sort_by(&year)")
+				//bookList.slice().sort((a,b)=> b.year>a.year)
+			)
+		};
+		document.getElementById("popularBooks").onclick=function(){bookListRun(
+			bookList.slice().sort((a,b)=> b.rating>a.rating)
+		)};
+		document.getElementById("freeBooks").onclick=function(){bookListRun(
+			bookList.filter((a)=> a.price === 0)
+		)};
 	</script>
 </body>
 

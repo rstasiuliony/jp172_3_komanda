@@ -55,11 +55,11 @@ function BookList(props) {
 }
 
 function bookListRun(list){
-	ReactDOM.render(
-		<BookList books={list} />, 
-		document.getElementById("bookList")
-	);
+    ReactDOM.render(
+        <BookList books={list} />, 
+        document.getElementById("bookList")
+    );
 }
 
-
+bookListRun(bookList);
 
