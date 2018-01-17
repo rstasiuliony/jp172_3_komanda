@@ -100,6 +100,12 @@
 				<li>
 					<a href="#">Free Books</a>
 				</li>
+=======
+				<li><a href="#" id="allBooks">All Books</a></li>
+				<li><a href="#" id="recentBooks">Most Recent</a></li>
+				<li><a href="#" id="popularBooks">Most Popular</a></li>
+				<li><a href="#" id="freeBooks">Free Books</a></li>
+>>>>>>> develop
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
@@ -148,17 +154,14 @@
 			</li>
 		</ul>
 	</footer>
-	<script src="js/bookListGen.js" type="text/babel"></script>
-	<script type="text/babel">
-		document.getElementById("body").onload = function(){
-			bookListRun(bookList);
-		};
-		// document.getElementById("body").onload = function(){
-		// 	bookListRun(bookList);
-		// };
-		
+  	<script src="js/bookListGen.js" type="text/babel"></script>
+  	<script type="text/babel">
+		document.getElementsByTagName("body")[0].onload=function(){bookListRun(bookList)};
+		document.getElementById("allBooks").onclick=function(){bookListRun(bookList)};
+		document.getElementById("recentBooks").onclick=function(){bookListRun(recentbookList)};
+		document.getElementById("popularBooks").onclick=function(){bookListRun(popularbookList)};
+		document.getElementById("freeBooks").onclick=function(){bookListRun(freebookList)};
 	</script>
-
 </body>
 
 </html>

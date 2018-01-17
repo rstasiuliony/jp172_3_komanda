@@ -140,6 +140,7 @@ a {
 }
 /*top grey part*/
 
+/*STENKITES NENAUDOTI #!*/
 #browse {
 	margin-left: 40px;
 }
@@ -255,6 +256,11 @@ a {
 .wholeblock {
 	margin-left: 30px;
     clear:both;
+}
+
+img{
+    width:200px;
+    height: 275px;
 }
 
 /*footer navigation*/
