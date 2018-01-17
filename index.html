@@ -64,10 +64,10 @@
 		<div class="toppart">
 			<ul class="inlinemenu">
 				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
-				<li><a href="#">All Books</a></li>
-				<li><a href="#">Most Recent</a></li>
-				<li><a href="#">Most Popular</a></li>
-				<li><a href="#">Free Books</a></li>
+				<li><a href="#" id="allBooks">All Books</a></li>
+				<li><a href="#" id="recentBooks">Most Recent</a></li>
+				<li><a href="#" id="popularBooks">Most Popular</a></li>
+				<li><a href="#" id="freeBooks">Free Books</a></li>
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
@@ -111,6 +111,18 @@
 		</ul>
 	</footer>
   <script src="js/bookListGen.js" type="text/babel"></script>
+  <script type="text/babel">
+document.getElementsByTagName("body")[0].onload=function(){
+    myFunction(bookList)};
+    document.getElementById("allBooks").onclick=function(){
+    myFunction(bookList)};
+    document.getElementById("recentBooks").onclick=function(){
+    myFunction(recentbookList)};
+    document.getElementById("popularBooks").onclick=function(){
+    myFunction(popularbookList)};
+    document.getElementById("freeBooks").onclick=function(){
+    myFunction(freebookList)};
+    </script>
 </body>
 
 </html>
