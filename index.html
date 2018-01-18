@@ -2,44 +2,57 @@
 <html lang="en">
 
 <head>
-	<title>Bookstore</title>
-	<meta charset="utf-8">
-	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
-	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
+    <title>Bookstore</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+    <meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
 
-	<!-- To be added link to CSS:  -->
-	<link href="css/style.css" rel="stylesheet">
-	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <!-- To be added link to CSS:  -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
-	<!--Required for stars rating and for menu icons:-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Required for stars rating and for menu icons:-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/babel.js"></script>
+    <script src="js/bookList.js"></script>
 </head>
 
 <body onload="index()">
-	<!--Top black bar:-->
-	<header class="top">
-		<div id="name">
-			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
-		</div>
-		<div class="headermenu">
-			<ul class="topmenu">
-				<!-- Links to be added:-->
-				<li><a href="#"onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a></li>
-				<li><a href="#"onClick="document.getElementById('id01').style.display='block'" class="">Our Support</a></li>
-				<li ><a href="login.html" id="replace">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
-					<!--Place for drop down.
-					<ul class="topdown">
-					</ul>
--->
-				</li>
+    <!--Top black bar:-->
+    <header class="top">
+        <div id="name">
+            <p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+        </div>
+        <div class="headermenu">
+            <ul class="topmenu">
+                <!-- Links to be added:-->
+                <li><a href="#" onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a></li>
+                <li><a href="#" onClick="document.getElementById('id03').style.display='block'" class="">Our Support</a></li>
+                <li><a id="replace" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content">
+                            <div class="w3-container">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                <div class="include-login-html">
+                                    <script type="text/javascript">
+                                        $(".include-login-html").load("login.html");
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
-			</ul>
-		</div>
-		<script src="js/login.js"></script>
+            </ul>
+        </div>
+        <script src="js/login.js"></script>
 
-	</header>
+    </header>
 
 	<!--Left side bar:-->
 	<nav class="sidenav">
@@ -56,14 +69,12 @@
 
 	<main>
 		<!--Top grey part:-->
- <!--Modal menu support:-->
-        <div class="w3-container">
- 
+
   
-  <div id="id01" class="w3-modal">
+  <div id="id03" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
        
          <!--<header>Ask a Question</header>-->
         <p>Please fill in the following information</p>
@@ -108,7 +119,7 @@
       </div>
     </div>
   </div>
-</div>
+
         <!--Modal menu help:-->
         <div id="id02" class="w3-modal">
     <div class="w3-modal-content">
@@ -131,7 +142,7 @@
                 <H4>ORDERING ></H4>
                <p>How to make an order</p>
             <p>1. Login using your USD username and password (or shop as a guest).<p>2.Select the appropriate Book and add cbooks to your cart, check out.
-               <!--<p>How to change your order</p>-->           
+               <p>How to change your order</p>           
         </div5>
         <div6 class="down" id="selfsevice">
                 <H4>SELF SERVICE ></H4>
@@ -144,171 +155,23 @@
         </div>
     </div>
   </div>
-
 		<h2 id="browse">Browse Available Books</h2>
 		<div class="toppart">
 			<ul class="inlinemenu">
-				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
-				<li><a href="#">All Books</a></li>
-				<li><a href="#">Most Recent</a></li>
-				<li><a href="#">Most Popular</a></li>
-				<li><a href="#">Free Books</a></li>
+				<li><a href="#" id="allBooks">All Books</a></li>
+				<li><a href="#" id="recentBooks">Most Recent</a></li>
+				<li><a href="#" id="popularBooks">Most Popular</a></li>
+				<li><a href="#" id="freeBooks">Free Books</a></li>
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
-
 				<span class="fa fa-search"></span>
 				<input placeholder="Enter Keywords">
-
-
 			</div>
-
 		</div>
 
 		<!--Books part:-->
-		<div class="wholeblock">
-			<!-- Links to be added-->
-			<!-- For stars please use color: orange-->
-			<div class="book" id="first">
-				<a href="#">
-                        <img src="images/cakes_and_bakes.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Cakes &#38; Bakes</a></p>
-				<p>by <a href="#">Sanjeev Kapoor</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="second">
-				<a href="#">
-                        <img src="images/cook_like_an_italian.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Cool Like an Italian</a></p>
-				<p>by <a href="#">Tobie Puttock</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="third">
-				<a href="#">
-                        <img src="images/inexpensive_family_meals.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Inexpensive Family Meals</a></p>
-				<p>by <a href="#">Simon Holst</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="fourth">
-				<a href="#">
-                        <img src="images/jamie_does.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Jamie Does</a></p>
-				<p>by <a href="#">Jamie Oliver</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="fifth">
-				<a href="#">
-                        <img src="images/jamies_italy.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Jamie&#39;s Italy</a></p>
-				<p>by <a href="#">Jamie Oliver</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="six">
-				<a href="#">
-                        <img src="images/jamies_kitchen.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Jamie&#39;s Kitchen</a></p>
-				<p>by <a href="#">Jamie Oliver</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="seventh">
-				<a href="#">
-                        <img src="images/jewels_of_nizam.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Jewels of Nizam</a></p>
-				<p>by <a href="#">Geeta Devi</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="eight">
-				<a href="#">
-                        <img src="images/paleo_slow_cooking.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Paleo Slow Cooking</a></p>
-				<p>by <a href="#">Chrissy Gower</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="nine">
-				<a href="#">
-                        <img src="images/suneeta_vaswani.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Suneeta Vaswani</a></p>
-				<p>by <a href="#">Geeta Devi</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
-			<div class="book" id="tenth">
-				<a href="#">
-                        <img src="images/vegetables_cookbook.png" alt="book"/>
-                    </a>
-				<p class="bookName"><a href="#">Vegetables Cookbook</a></p>
-				<p>by <a href="#">Matthew Biggs</a></p>
-				<div class="rating">
-					<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-					<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-					<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-					<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-					<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-				</div>
-			</div>
+		<div id="bookList">
 		</div>
 	</main>
 
@@ -337,6 +200,10 @@
 			</li>
 		</ul>
 	</footer>
+	<script src="js/bookListGen.js" type="text/babel"></script>
+	<script type="text/babel">
+		document.getElementsByTagName("body")[0].onload=function(){ myFunction(bookList)}; document.getElementById("allBooks").onclick=function(){ myFunction(bookList)}; document.getElementById("recentBooks").onclick=function(){ myFunction(recentbookList)}; document.getElementById("popularBooks").onclick=function(){ myFunction(popularbookList)}; document.getElementById("freeBooks").onclick=function(){ myFunction(freebookList)};
+	</script>
 </body>
 
 </html>
