@@ -41,7 +41,7 @@
 				<!-- Links to be added:-->
 				<li><a href="#" onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a></li>
 				<li><a href="#" onClick="document.getElementById('id03').style.display='block'" class="">Our Support</a></li>
-				<li><a href="#" id="replace" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
+				<li id="replace"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
 					<div id="id01" class="w3-modal">
 						<div class="w3-modal-content">
 							<div class="w3-container">
@@ -49,7 +49,6 @@
 								<div class="include-login-html">
 									<script>
 										$(".include-login-html").load("login.html");
-
 									</script>
 								</div>
 							</div>

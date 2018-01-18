@@ -14,7 +14,7 @@ function login() {
 	allusers = JSON.parse(JSON_users);
 
 	for (var i = 0; i < allusers.length; i++) {
-		if (allusers[i].name == user && allusers[i].password == pasw) {
+		if (allusers[i].name.toLowerCase() == user.toLowerCase() && allusers[i].password == pasw) {
 			startloggedsession(allusers[i]);
 			//alert("Login successful"); // nukreipi i html pradini, priloginta ir pakeiti virsu
 			return true;
@@ -35,21 +35,21 @@ function startloggedsession(currentuser) {
 
 //log outs the user:
 
-function logout(){
+function logout() {
 	sessionStorage.clear();
 	window.location.replace("index.html");
 }
 
 //replaces "login" to user data and adds "logout button":
 
-function index(){
+function index() {
 	var logged = sessionStorage.getItem("logged");
-	if(logged === "true") {
+	if (logged === "true") {
 		document.getElementById("replace").innerHTML = "Hi, " + sessionStorage.getItem("username") + "!";
+		document.getElementById("replace").setAttribute("style", "color: white; display: table-cell; vertical-align: middle; padding-top: 14px");
 		document.getElementById("logout").setAttribute("style", "visibility: visible");
 	}
 }
-
 //Checks if new user and signs up if new user. Validates entered data:
 
 function sign() {
