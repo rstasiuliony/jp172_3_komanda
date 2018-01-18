@@ -18,8 +18,10 @@
 	<script src="js/react-dom.js"></script>
 	<script src="js/babel.js"></script>
 	<script src="js/jmespath.js"></script>
+	<script src="js/bookListLib.js" type="text/babel"></script>
 	<script src="js/bookList.js"></script>
-	<script src="js/bookListGen.js" type="text/babel"></script>
+	<script src="js/menuLib.js" type="text/babel"></script>
+	<script src="js/menuLists.js"></script>
 	<script src="js/webStorage.js"></script>
 
 </head>
@@ -27,13 +29,11 @@
 <body id="body">
 	<!--Top black bar:-->
 	<header class="top">
-		<div id="name">
-			<p>
-				<i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+		<div id="name"><p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
 		</div>
-		<div class="headermenu">
-			<ul class="topmenu">
-				<!-- Links to be added:-->
+		<div id="topmenu" class="headermenu">
+			<!-- <ul class="topmenu">
+				<!-- Links to be added:- ->
 				<li>
 					<a href="#">Help Center</a>
 				</li>
@@ -47,12 +47,12 @@
 					<!--Place for drop down.
 					<ul class="topdown">
 					</ul>
--->
+- ->
 				</li>
 				<li id="logout" style="visibility: hidden" onclick="logout()">
 					<a href="#">Logout</a>
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 		<script src="js/login.js"></script>
 
@@ -107,8 +107,7 @@
 		</div>
 
 		<!--Books part:-->
-		<div id="bookList">
-		</div>
+		<div id="bookList"></div>
 	</main>
 
 	<footer>
@@ -143,23 +142,7 @@
 			</li>
 		</ul>
 	</footer>
-  	<script type="text/babel">
-		document.getElementById("allBooks").onclick=function(){
-			bookListRun(bookList)
-		};
-		document.getElementById("recentBooks").onclick=function(){
-			bookListRun(
-				jmespath.search(bookList, "sort_by(&year)")
-				//bookList.slice().sort((a,b)=> b.year>a.year)
-			)
-		};
-		document.getElementById("popularBooks").onclick=function(){bookListRun(
-			bookList.slice().sort((a,b)=> b.rating>a.rating)
-		)};
-		document.getElementById("freeBooks").onclick=function(){bookListRun(
-			bookList.filter((a)=> a.price === 0)
-		)};
-	</script>
+  	<script src="js/final.js" type="text/babel"></script>
 </body>
 
 </html>

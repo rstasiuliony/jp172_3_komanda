@@ -107,7 +107,7 @@ var bookList = [
         price  : 2,
         year   : 2012
     },
-      {
+    {
         id     : 13,
         name   : "Hillbilly Elegy", 
         author : "J. D. Vance", 
