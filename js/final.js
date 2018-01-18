@@ -1,5 +1,5 @@
 bookListRun(bookList);
-menuListRun(topMenuList, "topmenu");
+// menuListRun(topMenuList, "topmenu");
 
 document.getElementById("allBooks").onclick=function(){
     bookListRun(bookList)
