@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="out"></div>
+    <script>
+
+
+        function h(tagName, ...args) {
+            var result = new Tag(tagName);
+            //result.push(tagName);
+            if (args.length > 0){
+                if (args[0] instanceof Object && !(args[0] instanceof Tag)) {
+                    const attr = Object.assign(new Attr(), args.shift());
+                    result.push(attr);
+                } else result.push(new Attr());
+            }
+            return result.concat(args);
+        };
+
+        class Attr extends Object {
+            toString(){
+                var result = "";
+                for(var item in this){
+                    result += `; ${item} : ${this[item]}`;
+                }
+                return `{ ${result.substring(2)}}`;
+            }
+        }
+
+        class Tag extends Array {
+            toString(){
+                var result = "";
+                for (var item of this){
+                    result += `; ${item.toString()}`;
+                }
+                return `[ ${result.substring(2)} ]`;
+            }
+        }
+
+        let arr = 
+            h('div#page', 
+                h('div#header',
+                    h('h1.classy', { attr: "abc", style : { float: 'left'} }, 'h', 2)
+                ),
+                h('div#menu', 
+                    { 
+                        style: {
+                            float: 'left',
+                            width: '200px'
+                        }
+                    },
+                    h('ul',
+                        h('li', 'one'),
+                        h('li', 'two'),
+                        h('li', 'three')
+                    )
+                ),
+                h('div#content', { 
+                    style: {
+                            float: 'left'
+                        }
+                    },
+                    h('h2', 'content title'),
+                    h('p',
+                        "so it's just like a templating engine,\n",
+                        "but easy to use inline with javascript\n"
+                    ),
+                    h('p',
+                        "the intention is for this to be used to create\n",
+                        "reusable, interactive html widgets. "
+                    )
+                )
+            );
+
+
+
+        document.querySelector("#out").innerHTML = arr.toString();
+
+    </script>
+
+    <p id="demo"></p>
+
+    <script>
+        try {
+            adddlert("Welcome guest!");
+        }
+        catch(err) {
+            document.getElementById("demo").innerHTML = err.name;
+        }
+
+        {
+            kada();
+        }
+    </script> 
+</body>
+
+</html>
