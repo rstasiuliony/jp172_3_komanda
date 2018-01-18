@@ -16,3 +16,8 @@ document.getElementById("popularBooks").onclick=function(){bookListRun(
 document.getElementById("freeBooks").onclick=function(){bookListRun(
     bookList.filter((a)=> a.price === 0)
 )};
+document.getElementById("favourite").onclick=function(){
+    
+    bookListRun(
+    bookList.filter((a)=> a.check === true)
+)};
