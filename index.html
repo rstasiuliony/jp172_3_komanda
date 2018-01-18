@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-	<title>Bookstore</title>
-	<meta charset="utf-8">
-	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
-	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
+    <title>Bookstore</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+    <meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
 
-	<!-- To be added link to CSS:  -->
-	<link href="css/style.css" rel="stylesheet">
-	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <!-- To be added link to CSS:  -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
 	<!--Required for stars rating and for menu icons:-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 	<script src="js/react.js"></script>
 	<script src="js/react-dom.js"></script>
 	<script src="js/babel.js"></script>
@@ -26,38 +28,37 @@
 
 </head>
 
-<body id="body">
-	<!--Top black bar:-->
-	<header class="top">
-		<div id="name">
-			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
-		</div>
-		<div id="topmenu" class="headermenu">
-			<!--
-			<ul class="topmenu">
-				<!-- Links to be added:- ->
-				<li>
-					<a href="#">Help Center</a>
-				</li>
-				<li>
-					<a href="#">Our Support</a>
-				</li>
-				<li>
-					<a href="login.html" id="replace">Login
-						<i class="fa fa-check-circle " aria-hidden="true"></i>
-					</a>
-					<!--Place for drop down.
-					<ul class="topdown">
-					</ul> - ->
-				</li>
-				<li id="logout" style="visibility: hidden" onclick="logout()">
-					<a href="#">Logout</a>
-				</li>
-			</ul>-->
-		</div>
-		<script src="js/login.js"></script>
+<body onload="index()">
+    <!--Top black bar:-->
+    <header class="top">
+        <div id="name">
+            <p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+        </div>
+        <div class="headermenu">
+            <ul class="topmenu">
+                <!-- Links to be added:-->
+                <li><a href="#" onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a></li>
+                <li><a href="#" onClick="document.getElementById('id03').style.display='block'" class="">Our Support</a></li>
+                <li><a id="replace" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content">
+                            <div class="w3-container">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                <div class="include-login-html">
+                                    <script type="text/javascript">
+                                        $(".include-login-html").load("login.html");
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
+            </ul>
+        </div>
+        <script src="js/login.js"></script>
 
-	</header>
+    </header>
 
 	<!--Left side bar:-->
 	<nav class="sidenav">
@@ -87,10 +88,94 @@
 	<main>
 		<!--Top grey part:-->
 
+  
+  <div id="id03" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+       
+         <!--<header>Ask a Question</header>-->
+        <p>Please fill in the following information</p>
+      
+        
+   <!--<divc class="grid-container">-->     
+    <div class="left" id="accountinfo">
+        <p>YOUR ACCOUNT INFORMATION</p>
+        <p>First name*</p>
+        <form action="firstname">
+        <input type="text" name="First name">
+             </form>
+        <p>Last name*</p>
+        <form action="lastname">
+        <input type="text" name="Last name">
+    
+    </form>
+        <p>Your e-mail adress*<p>
+        <form action="email">
+        <input type="text" name="Your e-mail adress">
+    
+    </form>
+     </div>           
+    <div class="contacts" id="contacts"><p>CONTACTS</p>
+        <p>Call us: +370 61125644</p>
+        <p>e-mail: bookstore@bookstore.lt</p>
+       </div>
+               
+   <p>TELL US HOW WE CAN HELP</p>
+        <p>Please provide some details about your problem.*</p>
+        <form action="question">
+        <textarea name="question" >Enter your question</textarea> 
+            <input type="submit" value="Send">
+            </form>
+       
+        <form action="upload">
+            
+        <p>Attach a file or screenshot to give us a better idea of the problem (optional)</p>
+        <input type="file" name="Choose file">
+        </form>
+           
+      </div>
+    </div>
+  </div>
+
+        <!--Modal menu help:-->
+        <div id="id02" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span> 
+       <divc class="grid-container">     
+    <div2 class="up" id="how to pay">
+                 <H4>HOW TO PAY</H4>
+                <p>Master card Visa American Express Paypal</p>                              
+        </div2>   
+     <div3 class="up" id="delivery">
+                <H4>DELIVERY</H4>>
+             
+         <H8>How long it takes to receive your order?</H8>
+         <p>   We encourage sellers to ship an item as soon as they receive a payment. Most sellers ship within 7 days. (Allow extra time for international shipments.)</p> 
+        </div3>
+        </divc>
+           <divc class="grid-container1"> 
+          <div5 class="down" id="ordering">
+                <H4>ORDERING ></H4>
+               <p>How to make an order</p>
+            <p>1. Login using your USD username and password (or shop as a guest).<p>2.Select the appropriate Book and add cbooks to your cart, check out.
+               <p>How to change your order</p>           
+        </div5>
+        <div6 class="down" id="selfsevice">
+                <H4>SELF SERVICE ></H4>
+             <p>  <a href="#">View yout purchase history</a></p>           
+                 <p><a href="#">Change your password</a></p>
+               
+        </div6>
+        </divc> 
+    
+        </div>
+    </div>
+  </div>
 		<h2 id="browse">Browse Available Books</h2>
 		<div class="toppart">
 			<ul class="inlinemenu">
-				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
 				<li><a href="#" id="allBooks">All Books</a></li>
 				<li><a href="#" id="recentBooks">Most Recent</a></li>
 				<li><a href="#" id="popularBooks">Most Popular</a></li>
@@ -99,12 +184,9 @@
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
-
 				<span class="fa fa-search"></span>
 				<input placeholder="Enter Keywords">
-
 			</div>
-
 		</div>
 
 		<!--Books part:-->
