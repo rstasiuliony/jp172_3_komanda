@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Required for modal menus:-->
     <link rel="stylesheet" href="css/modal.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
     <script src="js/react.js"></script>
     <script src="js/react-dom.js"></script>
@@ -47,9 +47,8 @@
                             <div class="w3-container">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                                 <div class="include-login-html">
-                                    <script type="text/javascript">
+                                    <script>
                                         $(".include-login-html").load("login.html");
-
                                     </script>
                                 </div>
                             </div>
@@ -144,14 +143,14 @@
                 <div class="w3-container">
                     <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                     <div>
-                        <div class="up" id="how to pay">
+                        <div class="up" id="howtopay">
                             <h4>HOW TO PAY</h4>
-                            <h8>How can I pay?</h8>
+                            <h5>How can I pay?</h5>
                             <p>You can pay with Master card, Visa, American Express or via Paypal.</p>
                         </div>
                         <div class="up" id="delivery">
                             <h4>DELIVERY</h4>
-                            <h8>How long it takes to receive your order?</h8>
+                            <h5>How long it takes to receive your order?</h5>
                             <p>We encourage sellers to ship an item as soon as they receive a payment. Most sellers ship within 7 days. (Allow extra time for international shipments.)</p>
                         </div>
                     </div>
@@ -193,7 +192,7 @@
     <footer>
         <!--Footer part:-->
         <!--        Bubbles:-->
-        <div class="cont" id=" container">
+        <div class="cont" id="container">
             <button class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
             <div class="object1" id="one"></div>
             <div class="object2" id="two"></div>
