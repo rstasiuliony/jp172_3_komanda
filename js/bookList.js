@@ -5,8 +5,8 @@ var bookList = [
         author : "Geeta Devi", 
         image  : "jewels_of_nizam.png", 
         rating : 5.0,
-        price :  0.0,
-        year : 2012
+        price  : 0.0,
+        year   : 2012
     },
     {
         id     : 2,
@@ -14,8 +14,8 @@ var bookList = [
         author : "Sanjeev Capoor", 
         image  : "cakes_and_bakes.png",
         rating : 5.0,
-        price : 0.0,
-        year : 2017
+        price  : 0.0,
+        year   : 2017
     },
     {
         id     : 3,
@@ -23,8 +23,8 @@ var bookList = [
         author : "Jamie Oliver", 
         image  : "jamies_kitchen.png", 
         rating : 4.5,
-        price : 2,
-        year : 2014
+        price  : 2,
+        year   : 2014
     },
     {
         id     : 4,
@@ -32,8 +32,8 @@ var bookList = [
         author : "Simon Holst", 
         image  : "inexpensive_family_meals.png", 
         rating : 4.0,
-         price : 2,
-        year : 2015
+        price  : 2,
+        year   : 2015
     },
     {
         id     : 5,
@@ -41,8 +41,8 @@ var bookList = [
         author : "Crissy Gover", 
         image  : "paleo_slow_cooking.png", 
         rating : 4.5,
-        price : 2,
-        year : 2016
+        price  : 2,
+        year   : 2016
     },
     {
         id     : 6,
@@ -50,8 +50,8 @@ var bookList = [
         author : "Tobbie Puttok", 
         image  : "cook_like_an_italian.png", 
         rating : 4.0,
-         price : 2,
-        year : 2017
+        price  : 2,
+        year   : 2017
     },
     {
         id     : 7,
@@ -59,8 +59,8 @@ var bookList = [
         author : "Geeta Devi", 
         image  : "suneeta_vaswani.png", 
         rating : 5.0,
-        price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     },
     {
         id     : 8,
@@ -68,8 +68,8 @@ var bookList = [
         author : "Jamie Oliver", 
         image  : "jamie_does.png", 
         rating : 4.0,
-         price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     },
     {
         id     : 9,
@@ -77,8 +77,8 @@ var bookList = [
         author : "Jamie Oliver", 
         image  : "jamies_italy.png", 
         rating : 5.0,
-        price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     },
     {
         id     : 10,
@@ -86,17 +86,17 @@ var bookList = [
         author : "Matthew Biggs", 
         image  : "vegetables_cookbook.png", 
         rating : 3.5,
-        price : 2,
-        year : 2013
+        price  : 2,
+        year   : 2013
     },
-     {
+    {
         id     : 11,
         name   : "A man called Ove", 
         author : "Fredrick Backman", 
         image  : "a_man_called_ove.png", 
         rating : 4.5,
-         price : 2,
-         year : 2015
+        price  : 2,
+        year   : 2015
     },
     {
         id     : 12,
@@ -104,17 +104,17 @@ var bookList = [
         author : "Anthony Doerr", 
         image  : "all_the_light_we_cannot_see.png", 
         rating : 3,
-         price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     },
-     {
+    {
         id     : 13,
         name   : "Hillbilly Elegy", 
         author : "J. D. Vance", 
         image  : "hillbilly_elegy.png", 
         rating : 4,
-         price : 2.5,
-         year : 2012
+        price  : 2.5,
+        year   : 2012
     },
     {
         id     : 14,
@@ -122,17 +122,17 @@ var bookList = [
         author : "Walter Isaacson", 
         image  : "leonardo_da_vinci.png", 
         rating : 4.5,
-        price : 2,
-        year : 2010
+        price  : 2,
+        year   : 2010
     },
-     {
+      {
         id     : 15,
         name   : "The catcher in the rye", 
         author : "J. D. Salinger", 
         image  : "the_catcher_in_the_rye.png", 
         rating : 4,
-          price : 3,
-         year : 2012
+        price  : 3,
+        year   : 2012
     },
     {
         id     : 16,
@@ -140,8 +140,8 @@ var bookList = [
         author : "Harper Lee", 
         image  : "to_kill_a_mockingbird.png", 
         rating : 4,
-        price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     },
     {
         id     : 17,
@@ -149,8 +149,8 @@ var bookList = [
         author : "R. J. Palacio", 
         image  : "wonder.png", 
         rating : 4,
-         price : 2,
-        year : 2009
+        price  : 2,
+        year   : 2009
     },
     {
         id     : 18,
@@ -158,8 +158,8 @@ var bookList = [
         author : "Sarah Young", 
         image  : "jesus_calling.png", 
         rating : 3,
-        price : 0,
-        year : 2012
+        price  : 0,
+        year   : 2012
     },
     {
         id     : 20,
@@ -167,13 +167,19 @@ var bookList = [
         author : "Mark Manson", 
         image  : "the_subtile_art_of_not_giving_a_fuck.png", 
         rating : 3.5,
-        price : 2,
-        year : 2012
+        price  : 2,
+        year   : 2012
     }
 ];
 
-var recentbookList = bookList.sort((a,b)=> b.year>a.year);
+function getPage(list, pageNo = 0, pageSize = 10){
+    const pages = Math.floor(list.length / pageSize);
+    const lower = pageNo * pageSize;
+    const upper = (pageNo + 1) * pageSize; 
+    return jmespath.search(list, `[${lower}:${upper}]`);
+}
 
-    var popularbookList = bookList.sort((a,b)=> b.rating>a.rating);
-    
-    var freebookList = bookList.filter((a)=> a.price === 0);
+// console.log(bookList);
+// console.log(jmespath.search(bookList, "[0:10]"));
+// console.log(getPage(bookList, 0));
+// console.log(getPage(bookList, 1));

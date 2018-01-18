@@ -12,14 +12,20 @@
     <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 
-    <!--Required for stars rating and for menu icons:-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--Required for stars rating and for menu icons:-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-    <script src="js/react.js"></script>
-    <script src="js/react-dom.js"></script>
-    <script src="js/babel.js"></script>
-    <script src="js/bookList.js"></script>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/babel.js"></script>
+	<script src="js/jmespath.js"></script>
+	<script src="js/bookListLib.js" type="text/babel"></script>
+	<script src="js/bookList.js"></script>
+	<script src="js/menuLib.js" type="text/babel"></script>
+	<script src="js/menuLists.js"></script>
+	<script src="js/webStorage.js"></script>
+
 </head>
 
 <body onload="index()">
@@ -59,10 +65,22 @@
 		<div class="navmenu">
 			<ul class="mainmenu">
 				<!-- Links to be added:-->
-				<li><a href="#"><i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a></li>
-				<li><a href="#"><i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a></li>
-				<li><a href="#"><i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a></li>
-				<li><a href="#"><i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a></li>
+				<li>
+					<a href="#">
+						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -162,6 +180,7 @@
 				<li><a href="#" id="recentBooks">Most Recent</a></li>
 				<li><a href="#" id="popularBooks">Most Popular</a></li>
 				<li><a href="#" id="freeBooks">Free Books</a></li>
+
 			</ul>
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
@@ -171,8 +190,7 @@
 		</div>
 
 		<!--Books part:-->
-		<div id="bookList">
-		</div>
+		<div id="bookList"></div>
 	</main>
 
 	<footer>
@@ -190,8 +208,15 @@
 		<!--       Other:-->
 
 		<ul class="help">
-			<li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
-			<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			<li>
+				<a href="#">
+					<i class="fa fa-question-circle" aria-hidden="true"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="fa fa-cog" aria-hidden="true"></i>
+				</a>
 				<!--place for down-top menu of settings
 				<ul class="downtop">
 					 
@@ -200,10 +225,7 @@
 			</li>
 		</ul>
 	</footer>
-	<script src="js/bookListGen.js" type="text/babel"></script>
-	<script type="text/babel">
-		document.getElementsByTagName("body")[0].onload=function(){ myFunction(bookList)}; document.getElementById("allBooks").onclick=function(){ myFunction(bookList)}; document.getElementById("recentBooks").onclick=function(){ myFunction(recentbookList)}; document.getElementById("popularBooks").onclick=function(){ myFunction(popularbookList)}; document.getElementById("freeBooks").onclick=function(){ myFunction(freebookList)};
-	</script>
+  	<script src="js/final.js" type="text/babel"></script>
 </body>
 
 </html>
