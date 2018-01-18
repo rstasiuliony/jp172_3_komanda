@@ -1,20 +1,11 @@
 <p id="result"></p>
 <script src="jmespath.js"></script>
+<script src="bookList.js"></script>
 
 <script>
     var result = jmespath.search(
-        {
-            foo: {
-                bar: {
-                    baz: [
-                        "jonas", 
-                        "petras", 
-                        "antanas"
-                    ]
-                }
-            }
-        }, 
-        "foo.bar.baz[2]"
+        bookList, 
+        "[2:5]"
     )
     document.getElementById("result").innerHTML = result;
 </script>
