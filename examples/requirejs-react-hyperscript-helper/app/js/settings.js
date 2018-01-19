@@ -9,7 +9,7 @@ requirejs.config({
         'react-dom'     :   'react-dom.development',
         'hyperscript'   :   'react-hyperscript',
         'helpers'       :   'hyperscript-helpers',
-        'react-class'   :   'create-react-class',
+//        'react-class'   :   'create-react-class',
         script          :   '../script'
     }
 });

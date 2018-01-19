@@ -1,13 +1,13 @@
 define(
-    ['require', 'hyperscript', 'helpers'], 
-    function(require, h, hh) {
+    ['require', 'react', 'hyperscript', 'helpers'], 
+    function(require, React, hyper, helpers) {
 
-        const {div, header, img, h1, p, code} = hh(h);
+        const {div, header, img, h1, p, code} = helpers(hyper);
         class App extends React.Component {
             render() {
                 return div({className:"App"},[
                     header( {className:"App-header"},[
-                        img( {src: "app/media/logo.svg", className:"App-logo", alt:"logo"}),
+                        img( {src: this.props.logo, className:"App-logo", alt:"logo"}),
                         h1( {className:"App-title"}, "Welcome to React")
                     ]),
                     p( {className:"App-intro"},[
@@ -19,8 +19,9 @@ define(
             }
         }
 
-        const app = function(attributes={}, children=[]){
+        return function(attributes={}, children=[]){
             return React.createElement(App, attributes, children);
         };
+
     }
 );
