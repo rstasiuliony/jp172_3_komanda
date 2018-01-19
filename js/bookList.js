@@ -6,7 +6,8 @@ var bookList = [
         image  : "jewels_of_nizam.png", 
         rating : 5.0,
         price  : 0.0,
-        year   : 2012
+        year   : 2012, 
+		check  : true
     },
     {
         id     : 2,
@@ -15,7 +16,8 @@ var bookList = [
         image  : "cakes_and_bakes.png",
         rating : 5.0,
         price  : 0.0,
-        year   : 2017
+        year   : 2017,
+		check  : false
     },
     {
         id     : 3,
@@ -24,7 +26,8 @@ var bookList = [
         image  : "jamies_kitchen.png", 
         rating : 4.5,
         price  : 2,
-        year   : 2014
+        year   : 2014,
+		check  : false
     },
     {
         id     : 4,
@@ -33,7 +36,8 @@ var bookList = [
         image  : "inexpensive_family_meals.png", 
         rating : 4.0,
         price  : 2,
-        year   : 2015
+        year   : 2015,
+		check  : false
     },
     {
         id     : 5,
@@ -42,7 +46,8 @@ var bookList = [
         image  : "paleo_slow_cooking.png", 
         rating : 4.5,
         price  : 2,
-        year   : 2016
+        year   : 2016,
+		check  : false
     },
     {
         id     : 6,
@@ -51,7 +56,8 @@ var bookList = [
         image  : "cook_like_an_italian.png", 
         rating : 4.0,
         price  : 2,
-        year   : 2017
+        year   : 2017,
+		check  : false
     },
     {
         id     : 7,
@@ -60,7 +66,8 @@ var bookList = [
         image  : "suneeta_vaswani.png", 
         rating : 5.0,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 8,
@@ -69,7 +76,8 @@ var bookList = [
         image  : "jamie_does.png", 
         rating : 4.0,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 9,
@@ -78,7 +86,8 @@ var bookList = [
         image  : "jamies_italy.png", 
         rating : 5.0,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 10,
@@ -87,7 +96,8 @@ var bookList = [
         image  : "vegetables_cookbook.png", 
         rating : 3.5,
         price  : 2,
-        year   : 2013
+        year   : 2013,
+		check  : false
     },
     {
         id     : 11,
@@ -96,7 +106,8 @@ var bookList = [
         image  : "a_man_called_ove.png", 
         rating : 4.5,
         price  : 2,
-        year   : 2015
+        year   : 2015,
+		check  : false
     },
     {
         id     : 12,
@@ -105,7 +116,8 @@ var bookList = [
         image  : "all_the_light_we_cannot_see.png", 
         rating : 3,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 13,
@@ -114,7 +126,8 @@ var bookList = [
         image  : "hillbilly_elegy.png", 
         rating : 4,
         price  : 2.5,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 14,
@@ -123,7 +136,8 @@ var bookList = [
         image  : "leonardo_da_vinci.png", 
         rating : 4.5,
         price  : 2,
-        year   : 2010
+        year   : 2010,
+		check  : false
     },
       {
         id     : 15,
@@ -132,7 +146,8 @@ var bookList = [
         image  : "the_catcher_in_the_rye.png", 
         rating : 4,
         price  : 3,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 16,
@@ -141,7 +156,8 @@ var bookList = [
         image  : "to_kill_a_mockingbird.png", 
         rating : 4,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 17,
@@ -150,7 +166,8 @@ var bookList = [
         image  : "wonder.png", 
         rating : 4,
         price  : 2,
-        year   : 2009
+        year   : 2009,
+		check  : false
     },
     {
         id     : 18,
@@ -159,7 +176,8 @@ var bookList = [
         image  : "jesus_calling.png", 
         rating : 3,
         price  : 0,
-        year   : 2012
+        year   : 2012,
+		check  : false
     },
     {
         id     : 20,
@@ -168,7 +186,8 @@ var bookList = [
         image  : "the_subtile_art_of_not_giving_a_fuck.png", 
         rating : 3.5,
         price  : 2,
-        year   : 2012
+        year   : 2012,
+		check  : false
     }
 ];
 
