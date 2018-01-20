@@ -1,6 +1,6 @@
 define(
-    ['require', './book-list', 'data/book-data', './login'], 
-    function(require, bookListRun, bookData, loginImport) 
+    ['require', './book-list', 'data/book-data', './login', './test'], 
+    function(require, bookListRun, bookData, loginImport, test) 
     {
 
         var page = document.getElementById("page").attributes['page-name'].value;
@@ -14,5 +14,8 @@ define(
         // if (page === 'login.html'){
         //     document.getElementById("btnLogin").onclick = login;
         // }
+
+        test();
+
     }
 );
