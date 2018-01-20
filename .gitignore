@@ -1,3 +1,5 @@
 Thumbs.db
 *.bat
 *.cmd
+*.code-workspace
+*.lnk
