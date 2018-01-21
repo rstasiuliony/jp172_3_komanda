@@ -1,0 +1,23 @@
+.mainStyleForModals {
+    display: block;
+    text-align: left;
+    padding-left: 85px;
+    padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.huglogin {
+    height: auto;
+}
+
+.hugsignup {
+    height: 350px;
+}
+
+.labely {
+    width: 400px;
+}
+
+.btnn {
+    width: 100px;
+}
