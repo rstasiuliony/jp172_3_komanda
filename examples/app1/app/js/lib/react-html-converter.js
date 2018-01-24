@@ -1,3 +1,5 @@
+define('require', function(require){
+
 'use strict';
 
 var React = require('react');
@@ -115,4 +117,7 @@ ReactHTMLConverter.prototype.convertStatic = function (htmlString) {
 	return null;
 };
 
-module.exports = ReactHTMLConverter;
+//module.exports = ReactHTMLConverter;
+return ReactHTMLConverter;
+
+};

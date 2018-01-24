@@ -1,5 +1,5 @@
 define(
-    ['require', 'react', 'react-dom', 'react-html-converter-dist', 'data/html-text'], 
+    ['require', 'react', 'react-dom', 'react-html-converter', 'data/html-text'], 
     function(require, React, ReactDOM,  ReactHTMLConverter, html) 
     {
 
@@ -12,7 +12,7 @@ define(
             };
         }
         
-        const converter = ReactHTMLConverter();
+        const converter = ReactHTMLConverter;
         converter.registerComponent('htmlIn', HTMLIn);
         
         //const html = '<div class="my-div"><Test text="Hello World" /></div>';
