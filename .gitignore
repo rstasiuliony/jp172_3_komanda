@@ -3,4 +3,4 @@ Thumbs.db
 *.cmd
 *.code-workspace
 *.lnk
-.vscode
+*.vscode
