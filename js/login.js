@@ -48,6 +48,7 @@ function index() {
 		document.getElementById("replace").innerHTML = "Hi, " + sessionStorage.getItem("username") + "!";
 		document.getElementById("replace").setAttribute("style", "color: white; display: table-cell; vertical-align: middle; padding-top: 14px");
 		document.getElementById("logout").setAttribute("style", "visibility: visible");
+        document.getElementById("setttings").setAttribute("style", "display: inline");
 	}
 }
 //Checks if new user and signs up if new user. Validates entered data:
@@ -77,8 +78,10 @@ function sign() {
 		} else {
 			savetostorage(userobject);
 			alert("Thank you! You can login now and choose the book!");
+            return true;
 		}
 	}
+    return false;
 }
 
 //saves user data to JSON array and local storage:
@@ -114,3 +117,60 @@ function checkuser(userobject) {
 	}
 	return false;
 }
+
+
+//Required for password change:
+function checkPassword(username, password) {
+	var allusers = [];
+	var JSON_users = window.localStorage.userstore;
+
+//	if (!JSON_users) {
+//		return false;
+//	}
+
+	allusers = JSON.parse(JSON_users);
+
+	for (var i = 0; i < allusers.length; i++) {
+		if (allusers[i].name === username && allusers[i].password === password) {
+			return true; // password correct
+		}
+	}
+	return false;
+}
+
+function changePassword() {
+    var old = document.getElementById("opp").value;
+	var neww = document.getElementById("oppchanged").value;
+	var newrepeat = document.getElementById("oppchangedrepeated").value;
+	var name = sessionStorage.getItem("username");
+	
+	if (!checkPassword(name, old)) {
+		alert("Old password is incorrect!");
+		return false;
+	}
+	
+	if (neww === "" || neww === null || newrepeat === "" || newrepeat === null) {
+		alert("Fields cannot be blank!");
+		return false;
+	}
+	
+	if (neww !== newrepeat) {
+		alert("Your password and confirmation password do not match. Try again.");
+		return false;
+	}
+	
+	var allusers;
+	var JSON_users = window.localStorage.userstore;
+	allusers = JSON.parse(JSON_users);
+	for (var i = 0; i < allusers.length; i++) {
+		if (allusers[i].name === name) {
+			allusers[i].password = neww;
+			break;
+		}
+	}
+	
+	window.localStorage.userstore = JSON.stringify(allusers);
+	alert("Password has been changed!");
+	return true;
+}
+
