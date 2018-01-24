@@ -9,7 +9,7 @@ function Star(props) {
 }
 
 function StarList(props) {
-	const starNums = Array.apply(null, {length: props.rating}).map((x, y) => y + 1);
+	const starNums = Array.apply(null, Array(5)).map((x, y) => y + 1);
 	const listItems = starNums.map((number) =>
 		<Star key={number.toString()} id={number.toString()} bookid={props.bookid}
 							value={number} />
