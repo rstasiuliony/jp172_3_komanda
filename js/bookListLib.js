@@ -61,5 +61,5 @@ function bookListRun(list){
     );
 }
 
-bookListRun(bookList);
+bookListRun(list);
 

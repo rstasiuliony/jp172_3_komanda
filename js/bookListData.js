@@ -1,4 +1,4 @@
-var bookList = [
+var bookListData = [
     {
         id     : 1,
         name   : "Jewels of Nizam", 
@@ -172,28 +172,4 @@ var bookList = [
     }
 ];
 
-class PagedBookList{
-    
-    constructor(newBookList, newPageSize = 10){
-        this._bookList = newBookList;
-        this.pageSize = newPageSize;
-    }
-
-    set pageSize(newPageSize){
-        this._pageSize = newPageSize;
-        this.pageNo = 0;
-    }
-    set pageNo(newPageNo){
-        this._pageNo = newPageNo;
-        this._lower =  this._pageNo * this._pageSize;
-        this._upper = ( this._pageNo + 1) * this._pageSize;
-    }
-
-    page(newPageNo){
-        this.pageNo = newPageNo;
-        return this._bookList.slice(this._lower, this._upper);
-    }
-}
-
-var pagedBookList = new PagedBookList(bookList, 10);
 
