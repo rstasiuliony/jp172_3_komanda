@@ -118,16 +118,59 @@ function checkuser(userobject) {
 	return false;
 }
 
+
+//Required for password change:
+function checkPassword(username, password) {
+	var allusers = [];
+	var JSON_users = window.localStorage.userstore;
+
+//	if (!JSON_users) {
+//		return false;
+//	}
+
+	allusers = JSON.parse(JSON_users);
+
+	for (var i = 0; i < allusers.length; i++) {
+		if (allusers[i].name === username && allusers[i].password === password) {
+			return true; // password correct
+		}
+	}
+	return false;
+}
+
 function changePassword() {
     var old = document.getElementById("opp").value;
 	var neww = document.getElementById("oppchanged").value;
 	var newrepeat = document.getElementById("oppchangedrepeated").value;
-    
-    if (old === "" || old === null || neww === "" || neww === null || newrepeat === "" || newrepeat === null) {
-		alert("All fields must be filled. Try again");
-	} else if (neww !== newrepeat) {
+	var name = sessionStorage.getItem("username");
+	
+	if (!checkPassword(name, old)) {
+		alert("Old password is incorrect!");
+		return false;
+	}
+	
+	if (neww === "" || neww === null || newrepeat === "" || newrepeat === null) {
+		alert("Fields cannot be blank!");
+		return false;
+	}
+	
+	if (neww !== newrepeat) {
 		alert("Your password and confirmation password do not match. Try again.");
-    } else {
-        //include value change in JSON
-    }
+		return false;
+	}
+	
+	var allusers;
+	var JSON_users = window.localStorage.userstore;
+	allusers = JSON.parse(JSON_users);
+	for (var i = 0; i < allusers.length; i++) {
+		if (allusers[i].name === name) {
+			allusers[i].password = neww;
+			break;
+		}
+	}
+	
+	window.localStorage.userstore = JSON.stringify(allusers);
+	alert("Password has been changed!");
+	return true;
 }
+
