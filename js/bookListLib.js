@@ -1,22 +1,23 @@
-function Star(props) {
-	var itemId = props.bookid + "star" + props.id;
-	return (
-		<div>
-			<input type="radio" id={itemId} name={props.bookid} value={props.value} />
-			<label htmlFor={itemId}></label>
-		</div>
-	);
-}
+
 
 function StarList(props) {
-	const starNums = Array.apply(null, {length: props.rating}).map((x, y) => y + 1);
-	const listItems = starNums.map((number) =>
-		<Star key={number.toString()} id={number.toString()} bookid={props.bookid}
-							value={number} />
-	);
+	var itemId = props.bookid + "star" + props.id;
+	
+	
 	return (
 		<div className="rating">
-			{listItems}
+			<input type="checkbox" id={itemId} name={props.bookid}/>
+		
+			<label htmlFor={itemId}></label>
+		<input type="checkbox" id={itemId} name={props.bookid}  />
+			<label htmlFor={itemId}></label>
+		<input type="checkbox" id={itemId} name={props.bookid}  />
+			<label htmlFor={itemId}></label>
+		<input type="checkbox" id={itemId} name={props.bookid}  />
+			<label htmlFor={itemId}></label>
+		<input type="checkbox" id={itemId} name={props.bookid}   />
+			<label htmlFor={itemId}></label>
+		
 		</div>
 	);
 }
