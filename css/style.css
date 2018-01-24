@@ -180,6 +180,10 @@ header {
     right: 7%;
 }
 
+.fa-search{
+    cursor: pointer;
+}
+
 /*book content*/
 
 .wholeblock {
