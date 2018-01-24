@@ -48,6 +48,7 @@ function index() {
 		document.getElementById("replace").innerHTML = "Hi, " + sessionStorage.getItem("username") + "!";
 		document.getElementById("replace").setAttribute("style", "color: white; display: table-cell; vertical-align: middle; padding-top: 14px");
 		document.getElementById("logout").setAttribute("style", "visibility: visible");
+        document.getElementById("setttings").setAttribute("style", "display: inline");
 	}
 }
 //Checks if new user and signs up if new user. Validates entered data:
@@ -77,8 +78,10 @@ function sign() {
 		} else {
 			savetostorage(userobject);
 			alert("Thank you! You can login now and choose the book!");
+            return true;
 		}
 	}
+    return false;
 }
 
 //saves user data to JSON array and local storage:
@@ -113,4 +116,18 @@ function checkuser(userobject) {
 		}
 	}
 	return false;
+}
+
+function changePassword() {
+    var old = document.getElementById("opp").value;
+	var neww = document.getElementById("oppchanged").value;
+	var newrepeat = document.getElementById("oppchangedrepeated").value;
+    
+    if (old === "" || old === null || neww === "" || neww === null || newrepeat === "" || newrepeat === null) {
+		alert("All fields must be filled. Try again");
+	} else if (neww !== newrepeat) {
+		alert("Your password and confirmation password do not match. Try again.");
+    } else {
+        //include value change in JSON
+    }
 }
