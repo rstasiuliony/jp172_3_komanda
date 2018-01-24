@@ -58,7 +58,6 @@
 				<li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
 			</ul>
 		</div>
-		<script src="js/login.js"></script>
 
 	</header>
 
@@ -221,18 +220,27 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="#" style="display: none" id="setttings" onclick="document.getElementById('id04').style.display='block'">
 					<i class="fa fa-cog" aria-hidden="true"></i>
 				</a>
-				<!--place for down-top menu of settings
-				<ul class="downtop">
-					 
-				</ul>
--->
-			</li>
+                <div id="id04" class="w3-modal">
+						<div class="w3-modal-content">
+							<div class="w3-container">
+								<span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+								<div class="include-changep-html">
+									<script>
+										$(".include-changep-html").load("changepassw.html");
+									</script>
+								</div>
+							</div>
+						</div>
+					</div>
+ 			</li>
 		</ul>
 	</footer>
 	<script src="js/final.js" type="text/babel"></script>
+    <script src="js/login.js"></script>
+
 </body>
 
 </html>
