@@ -97,14 +97,6 @@ var modal = document.getElementById('myModal');
 var modcontent = document.getElementsByClassName('about')[0];
 var span = document.getElementsByClassName("close")[0];
 
-<<<<<<< HEAD
-document.getElementById("book1").onclick = function () {
-=======
-
->>>>>>> 9efc3ce0f7cac2d776f7570529409f05ecec6361
-
-
-
 span.onclick = function() {
     modal.style.display = "none";
 }
