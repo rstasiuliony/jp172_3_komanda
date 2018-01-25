@@ -1,97 +1,104 @@
-class PagedBookList{
-	
-	_compare (a, b, fieldName){
-		let result = 0;
-		if (fieldName !== "name") result = b[fieldName] - a[fieldName];
-		if (result != 0) return result;
-		return (a.name > b.name) ? 1 : (a.name < b.name) ? -1 : 0;
-	}
+pagedBookList.sortByName();
+pagedBookList.view = 0;
+var bookList = pagedBookList.page;
 
-	constructor(newBookList, newPageSize = 10){
-		this._bookList = newBookList;
-		this._filter = { key : "", value : ""};
-		this.pageSize = newPageSize;
-	}
+//sideMenuRun(sideMenu);
+bookListRun(bookList, 0);
 
-	sortByYear(){
-		this._bookList.sort((a,b)=> this._compare(a, b, "year"));
-	}
-
-	sortByRating(){
-		this._bookList.sort((a,b)=> this._compare(a, b, "rating"));
-	}
-
-	sortByName(){
-		this._bookList.sort((a,b)=> this._compare(a, b, "name"));
-	}
-
-	setFilter(key = "", value = ""){
-		this._filter = {
-			key    : key,
-			value  : value
-		}
-	}
-
-	set pageSize(newPageSize){
-		this._pageSize = newPageSize;
-		this.pageNo = 0;
-	}
-	set pageNo(newPageNo){
-		this._pageNo = newPageNo;
-		this._lower =  this._pageNo * this._pageSize;
-		this._upper = ( this._pageNo + 1) * this._pageSize;
-	}
-
-	page(newPageNo = 0){
-		this.pageNo = newPageNo;
-		let filteredList =  this._bookList.slice(0, this._bookList.length);
-		if (this._filter.key !== "" || this._filter.value !== "") {
-			filteredList = this._bookList.filter((a)=> a[this._filter.key] === this._filter.value);
-		}
-		return filteredList.slice(this._lower, this._upper);
-	}
-}
-
-var pagedBookList = new PagedBookList(bookListData, 10);
-
-var bookList = pagedBookList.page();
-
-bookListRun(bookList);
 //menuListRun(topMenuList, "topmenu");
 
-document.getElementById("allBooks").onclick=function(){
-	pagedBookList.setFilter()
-	pagedBookList.sortByName();
-	bookList = pagedBookList.page(0);
-	bookListRun(bookList);
+function bookSet(){
+
+	var name = this.id;
+    
+    switch(name){
+    case "allBooks": 
+        pagedBookList.setFilter()
+        pagedBookList.sortByName();
+        break;
+    case "recentBooks":
+        pagedBookList.setFilter()
+        pagedBookList.sortByYear();
+        break;
+    case "popularBooks":
+        pagedBookList.setFilter()
+        pagedBookList.sortByRating();
+        break;
+    case "freeBooks":
+    	pagedBookList.sortByName();
+        pagedBookList.setFilter("price", 0)
+        break;
+    case "mnu-0":
+    	pagedBookList.setFilter()
+        pagedBookList.sortByName();
+        pagedBookList.page = 0;
+        pagedBookList.view = 0;
+		break;
+    case "mnu-1":
+    	pagedBookList.setFilter()
+        pagedBookList.sortByName();
+        pagedBookList.page = 0;
+        pagedBookList.view = 1;
+		break;
+    case "mnu-2":
+    	pagedBookList.setFilter()
+        pagedBookList.sortByName();
+        pagedBookList.page = 0;
+        pagedBookList.view = 2;
+		break;
+    case "mnu-3":
+    	pagedBookList.setFilter("whishList", true)
+        pagedBookList.sortByName();
+        pagedBookList.view = 3;
+        pagedBookList.page = 0;
+        break;
+    case "p0":
+        pagedBookList.first();
+        break;
+    case "p-1":
+        pagedBookList.last();
+        break;
+default:
+        if (/^p[0-9]+$/.test(name)){
+            pagedBookList.pageNo = parseInt(name.substring(1));
+        } else {
+            console.log("final.bookSet: switch(name) is unknown!");
+        }
+    }
+
+    bookList = pagedBookList.page;
+	bookListRun(bookList, pagedBookList.view);
 };
 
-document.getElementById("recentBooks").onclick=function(){
-	pagedBookList.setFilter()
-	pagedBookList.sortByYear();
-	bookList = pagedBookList.page(0);
-	bookListRun(bookList);
-};
+document.getElementById("mnu-0").onclick=bookSet;
+document.getElementById("mnu-1").onclick=bookSet;
+document.getElementById("mnu-2").onclick=bookSet;
+document.getElementById("mnu-3").onclick=bookSet;
+document.getElementById("allBooks").onclick=bookSet;
+document.getElementById("recentBooks").onclick=bookSet;
+document.getElementById("popularBooks").onclick=bookSet;
+document.getElementById("freeBooks").onclick=bookSet;
+document.getElementById("p0").onclick=bookSet;
+document.getElementById("p-1").onclick=bookSet;
+// const noOfPages = pagedBookList.noOfPages;
+// for (let i = 1; i < noOfPages - 1; i++){
+//     var node = document.getElementById("container").childNodes[i];
+//     node.onclick=bookSet;
+//     node.style.display = "inline-block";
+// }
+// forEach(document.getElementById("container").childNodes
 
-document.getElementById("popularBooks").onclick=function(){
-	pagedBookList.setFilter()
-	pagedBookList.sortByRating();
-	bookList = pagedBookList.page(0);
-	bookListRun(bookList);
-};
-
-document.getElementById("freeBooks").onclick=function(){
-	pagedBookList.sortByName();
-	pagedBookList.setFilter("price", 0)
-	bookList = pagedBookList.page(0);
-	bookListRun(bookList);
-};
-document.getElementById("favourite").onclick=function(){
-	pagedBookList.setFilter("check", true)
-	pagedBookList.sortByName();
-	bookList = pagedBookList.page(0);
-	bookListRun(bookList);
-};
+// const noOfPages = pagedBookList.noOfPages - 2;
+// const nums = Array.apply(null, {length: noOfPages}).map(
+//     (x, y) => y + 1
+// );
+// var firstItem = document.getElementById("p0")
+// var buttons = nums.map((number)=>{
+//     var div = document.createElement('div');
+//     div.innerHTML = `<button id='p${number.toString()}' class="nav-button" onclick=bookSet></button>`;
+//         // Change this to div.childNodes to support multiple top-level nodes
+//     insertAfter(div.firstChild, firstItem);
+//});
 
 var modal = document.getElementById('myModal');
 var modcontent = document.getElementsByClassName('about')[0];
