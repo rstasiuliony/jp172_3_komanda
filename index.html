@@ -17,15 +17,17 @@
 	<!--Required for modal menus:-->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-	<script src="js/react/react.js"></script>
+  	<script src="js/react/react.js"></script>
     <script src="js/react/react-dom.js"></script>
+    <script src="js/react/react-redux.js"></script>
     <script src="js/react/babel.js"></script>
+	<script src="js/utils.js"></script>
 	<script src="js/jmespath.js"></script>
-	<script src="js/bookListLib.js" type="text/babel"></script>
-	<script src="js/bookList.js"></script>
-	<script src="js/menuLib.js" type="text/babel"></script>
-	<script src="js/menuLists.js"></script>
-	<script src="js/webStorage.js"></script>
+	<script src="js/books/book-list-lib.js" type="text/babel"></script>
+	<script src="js/books/book-list-data.js"></script>
+	<!-- <script src="js/menu-list-data.js" type="text/babel"></script> -->
+	<!-- <script src="js/menu-list-lib.js" type="text/babel"></script> -->
+	<!-- <script src="js/webStorage.js"></script> -->
 
 </head>
 
@@ -62,25 +64,28 @@
 
 	<!--Left side bar:-->
 	<nav class="sidenav">
-		<div class="navmenu">
+		<div id="sidemenu" class="navmenu">
 			<ul class="mainmenu">
 				<!-- Links to be added:-->
 				<li>
-					<a href="#">
-						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a>
+					<a id="mnu-0" href="#" onclick="setStatus('view', 'browse')">
+						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>
+						Browse
+					</a>
 				</li>
 				<li>
-					<a href="#">
-						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a>
+					<a id="mnu-1" href="#" onclick="setStatus('view', 'buy')">
+						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>
+						Buy Books
+					</a>
 
 				</li>
 				<li>
-					<a id="favourite" href="#">
-
+					<a id="mnu-2" id="favourite" href="#">
 						<i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a>
 				</li>
 				<li>
-					<a href="#">
+					<a id="mnu-3" href="#">
 						<i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a>
 				</li>
 			</ul>
@@ -203,12 +208,14 @@
 	<footer>
 		<!--Footer part:-->
 		<!--        Bubbles:-->
-		<div class="cont" id="container">
-			<button class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
-			<div class="object1" id="one"></div>
-			<div class="object2" id="two"></div>
-			<div class="object3" id="three"></div>
-			<button class="nav-button" onclick="plusDivs(+1)">&#10095;</button>
+		<div class="cont bubbles" id="container">
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+		<button id="p-1" class="nav-button" onclick="plusDivs(+1)">&#10095;</button>
 		</div>
 		<!--       Other:-->
 
@@ -237,6 +244,7 @@
  			</li>
 		</ul>
 	</footer>
+	<script src="js/books/paged-book-list.js"></script>
 	<script src="js/final.js" type="text/babel"></script>
     <script src="js/login.js"></script>
 
