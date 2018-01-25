@@ -1,4 +1,0 @@
-/*
-    Starage management code 
-
-*/
