@@ -31,26 +31,26 @@ function bookSet(){
     case "mnu-0":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
-        pagedBookList.page = 0;
+        pagedBookList.pageNo = 0;
         pagedBookList.view = 0;
 		break;
     case "mnu-1":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
-        pagedBookList.page = 0;
+        pagedBookList.pageNo = 0;
         pagedBookList.view = 1;
 		break;
     case "mnu-2":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
-        pagedBookList.page = 0;
+        pagedBookList.pageNo = 0;
         pagedBookList.view = 2;
 		break;
     case "mnu-3":
     	pagedBookList.setFilter("whishList", true)
         pagedBookList.sortByName();
         pagedBookList.view = 3;
-        pagedBookList.page = 0;
+        pagedBookList.pageNo = 0;
         break;
     case "p0":
         pagedBookList.first();
