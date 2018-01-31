@@ -46,7 +46,7 @@ var bookListData = [
     },
     {
         id     : 6,
-        name   : "Cook Like an Intalian", 
+        name   : "Cook Like an Italian", 
         author : "Tobbie Puttok", 
         image  : "cook_like_an_italian.png", 
         rating : 4.0,
