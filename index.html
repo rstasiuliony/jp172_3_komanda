@@ -68,24 +68,29 @@
 			<ul class="mainmenu">
 				<!-- Links to be added:-->
 				<li>
-					<a id="mnu-0" href="#" onclick="setStatus('view', 'browse')">
+<!-- <<<<<<< HEAD
+					<a id="mnu-0" href="#"> <!--  onclick="setStatus('view', 'browse')" - ->
 						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>
 						Browse
 					</a>
+======= -->
+					<a id="browse" href="#">
+						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a>
+<!-- >>>>>>> 0e23bf1c7fe800e2d759038adc1ac2bcf4e429e7 -->
 				</li>
 				<li>
-					<a id="mnu-1" href="#" onclick="setStatus('view', 'buy')">
+					<a id="buy" href="#">  <!-- onclick="setStatus('view', 'buy')" -->
 						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>
 						Buy Books
 					</a>
 
 				</li>
 				<li>
-					<a id="mnu-2" id="favourite" href="#">
+					<a id="favourite" href="#">
 						<i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a>
 				</li>
 				<li>
-					<a id="mnu-3" href="#">
+					<a id="whishlist" href="#">
 						<i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a>
 				</li>
 			</ul>
@@ -197,7 +202,7 @@
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
 				<span class="fa fa-search"></span>
-				<input placeholder="Enter Keywords">
+				<input id = "key" placeholder="Enter Keywords">
 			</div>
 		</div>
 
@@ -230,17 +235,17 @@
 					<i class="fa fa-cog" aria-hidden="true"></i>
 				</a>
                 <div id="id04" class="w3-modal">
-						<div class="w3-modal-content">
-							<div class="w3-container">
-								<span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-								<div class="include-changep-html">
-									<script>
-										$(".include-changep-html").load("changepassw.html");
-									</script>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                            <span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                            <div class="include-changep-html">
+                                <script>
+                                    $(".include-changep-html").load("changepassw.html");
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
  			</li>
 		</ul>
 	</footer>

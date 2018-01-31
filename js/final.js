@@ -2,6 +2,7 @@ pagedBookList.sortByName();
 pagedBookList.view = 0;
 var bookList = pagedBookList.page;
 
+/* <<<<<<< HEAD */
 //sideMenuRun(sideMenu);
 bookListRun(bookList, 0);
 
@@ -28,25 +29,25 @@ function bookSet(){
     	pagedBookList.sortByName();
         pagedBookList.setFilter("price", 0)
         break;
-    case "mnu-0":
+    case "browse":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
         pagedBookList.pageNo = 0;
         pagedBookList.view = 0;
 		break;
-    case "mnu-1":
+    case "buy":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
         pagedBookList.pageNo = 0;
         pagedBookList.view = 1;
 		break;
-    case "mnu-2":
+    case "favourite":
     	pagedBookList.setFilter()
         pagedBookList.sortByName();
         pagedBookList.pageNo = 0;
         pagedBookList.view = 2;
 		break;
-    case "mnu-3":
+    case "whishlist":
     	pagedBookList.setFilter("whishList", true)
         pagedBookList.sortByName();
         pagedBookList.view = 3;
@@ -65,15 +66,50 @@ default:
             console.log("final.bookSet: switch(name) is unknown!");
         }
     }
+/* =======
+document.getElementById("allBooks").onclick = function () {
+    bookListRun(bookList)
+};
+
+document.getElementById("browse").onclick = function () {
+    bookListRun(bookList)
+};
+
+document.getElementById("recentBooks").onclick = function () {
+    bookListRun(
+        //        jmespath.search(bookList, "sort_by(&year)")
+        bookList.slice().sort((a, b) => b.year > a.year)
+    );
+};
+document.getElementById("popularBooks").onclick = function () {
+    bookListRun(
+        bookList.slice().sort((a, b) => b.rating > a.rating)
+    )
+};
+document.getElementById("freeBooks").onclick = function () {
+    bookListRun(
+        bookList.filter((a) => a.price === 0)
+    )
+};
+document.getElementById("favourite").onclick = function () {
+
+    bookListRun(
+        bookList.filter((a) => a.check === true)
+    )
+};
+var modal = document.getElementById('myModal');
+var modcontent = document.getElementsByClassName('about')[0];
+var span = document.getElementsByClassName("close")[0];
+>>>>>>> 0e23bf1c7fe800e2d759038adc1ac2bcf4e429e7 */
 
     bookList = pagedBookList.page;
 	bookListRun(bookList, pagedBookList.view);
 };
 
-document.getElementById("mnu-0").onclick=bookSet;
-document.getElementById("mnu-1").onclick=bookSet;
-document.getElementById("mnu-2").onclick=bookSet;
-document.getElementById("mnu-3").onclick=bookSet;
+document.getElementById("browse").onclick=bookSet;
+document.getElementById("buy").onclick=bookSet;
+document.getElementById("favourite").onclick=bookSet;
+document.getElementById("whishlist").onclick=bookSet;
 document.getElementById("allBooks").onclick=bookSet;
 document.getElementById("recentBooks").onclick=bookSet;
 document.getElementById("popularBooks").onclick=bookSet;
@@ -104,12 +140,35 @@ var modal = document.getElementById('myModal');
 var modcontent = document.getElementsByClassName('about')[0];
 var span = document.getElementsByClassName("close")[0];
 
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+/* <<<<<<< HEAD
+======= */
+
+document.getElementsByClassName("fa-search")[0].onclick = function () {
+    var key = document.getElementById("key").value.toLowerCase();
+    var result = new Array();
+    if (key.length < 3) {
+        alert("Key word must be at least 3 characters");
+    } else {
+        for (var i = 0; i < bookList.length; i++) {
+            if (bookList[i].name.toLowerCase().includes(key) || bookList[i].author.toLowerCase().includes(key)) {
+                result.push(bookList[i]);
+            }
+        }
+        if (result.length == 0) {
+            alert("Nothing found");
+        } else {
+            bookListRun(result);
+        }
+
+    }
+};
+/* >>>>>>> 0e23bf1c7fe800e2d759038adc1ac2bcf4e429e7 */
