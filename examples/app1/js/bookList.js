@@ -7,7 +7,7 @@ var bookList = [
         rating : 5.0,
         price  : 0.0,
         year   : 2012, 
-		check  : false
+		check  : true
     },
     {
         id     : 2,

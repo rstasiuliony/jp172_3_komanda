@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bookstore</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+	<meta name="description" content="Login and Sign Up form.">
+
+	<link href="app/css/login.css" rel="stylesheet">
+	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<main class="mainStyleForModals">
+		<div>
+			<p id="result"></p>
+		</div>
+		<div class="huglogin">
+			<h3 class="text" id="comingback">Enter your credentials</h3>
+			<div class="login">
+				<label>Username:</label><br />
+				<input class="labely" type="text" id="loginname" required value="" /><br /><br />
+
+				<label>Password:</label><br />
+				<input class="labely" type="password" id="loginpsw" required value="" />
+				<button id="btnLogin" type="submit" onclick="login()" class="btnn">Login</button>
+			</div>
+		</div>
+		<br />
+		<hr />
+		<div class="hugsignup">
+			<h3 class="text" id="signup">Sign Up if you are here for the first time</h3>
+			<div class="register">
+				<label>Username:</label><br />
+				<input class="labely" type="text" id="uname" required value="" /><br /><br />
+
+				<label>Password:</label><br />
+				<input class="labely" type="password" id="psw" required value="" /><br /><br />
+
+				<label>Repeat password:</label><br />
+				<input class="labely" type="password" id="rpsw" required value="" /><br /><br />
+
+				<label>Email address:</label><br />
+				<input class="labely" type="email" id="address" required value="" />
+				<button type="submit" onclick="sign()" class="btnn">Sign Up</button>
+			</div>
+		</div>
+		<script data-main="app/js/settings.js" src="app/js/lib/require.js"></script>
+		<!-- <script src="app/js/script/login.js"></script> -->
+	</main>
+</body>
+
+</html>
