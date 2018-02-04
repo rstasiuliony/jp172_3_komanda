@@ -30,14 +30,16 @@ function startloggedsession(currentuser) {
 	sessionStorage.setItem("logged", true);
 	sessionStorage.setItem("username", currentuser.name);
 	sessionStorage.setItem("email", currentuser.email);
-	window.location.replace("index.html");
+	//window.location.replace("index.html");
+    index();
 }
 
 //log outs the user:
 
 function logout() {
 	sessionStorage.clear();
-	window.location.replace("index.html");
+	//window.location.replace("index.html");
+    index();
 }
 
 //replaces "login" to user data and adds "logout button":
@@ -45,10 +47,16 @@ function logout() {
 function index() {
 	var logged = sessionStorage.getItem("logged");
 	if (logged === "true") {
-		document.getElementById("replace").innerHTML = "Hi, " + sessionStorage.getItem("username") + "!";
-		document.getElementById("replace").setAttribute("style", "color: white; display: table-cell; vertical-align: middle; padding-top: 14px");
+		document.getElementById("login").setAttribute("style", "display:none;");
+		document.getElementById("username").innerHTML = "Hi, " + sessionStorage.getItem("username") + "!";
+		document.getElementById("username").setAttribute("style", "display: table-cell;");
 		document.getElementById("logout").setAttribute("style", "visibility: visible");
-        document.getElementById("setttings").setAttribute("style", "display: inline");
+        document.getElementById("settings").setAttribute("style", "display: inline");
+	} else {
+		document.getElementById("username").setAttribute("style", "display: none;");
+		document.getElementById("logout").setAttribute("style", "visibility: hidden");
+		document.getElementById("login").setAttribute("style", "display:table;");
+        document.getElementById("settings").setAttribute("style", "display: none");
 	}
 }
 //Checks if new user and signs up if new user. Validates entered data:
@@ -173,4 +181,3 @@ function changePassword() {
 	alert("Password has been changed!");
 	return true;
 }
-
