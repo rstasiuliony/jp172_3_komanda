@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="./ha2p.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" >
+        import attributeToProperty from 'ha2p'
+
+        const attrToProp = attributeToProperty(function(tagName, attrs, children){
+            let result = tagName + "( ";
+            let inner = "";
+            Object.keys(attrs).map(key => inner += "; " + key.toString() + ' : "' + attrs[key].toString()+ '"'); 
+            children.map(value => inner += "; " + 
+                (typeof value === "string" ? `"${value}"` : value.toString()));
+            result += (inner.length > 1 ? inner.substring(2) : "");
+            return result + " )";
+        })
+
+        let text = attrToProp('div', {class: "MyClass"}, ["My", "text"]);
+
+        function Text(props) {
+            return (
+                <span>{props.value}</span>
+            );
+        }
+
+        document.getElementById("test").innerHTML = text;
+
+    </script>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+</html>

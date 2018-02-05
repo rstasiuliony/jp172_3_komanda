@@ -1,0 +1,20 @@
+<p id="string"></p>
+<p id="object"></p>
+<script>
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("Labas", "vakaras");
+    // Retrieve
+    document.getElementById("string").innerHTML = localStorage.getItem("Labas");
+    
+    localStorage.setItem("Objektas", { vienas: 1, du: 2});
+    document.getElementById("object").innerHTML = localStorage.getItem("Objektas");
+    
+    var test = localStorage.getItem("Test");
+    
+    alert(typeof test);
+    
+} else {
+    alert("WebStorage is not supported!")
+}
+</script>

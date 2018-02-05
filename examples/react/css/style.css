@@ -1,0 +1,279 @@
+/*framework*/
+
+body {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	grid-template-rows: 10% 80% 10%;
+}
+
+nav {
+	grid-column: 1/2;
+	grid-row: 2/3;
+	background-color: #202538;
+	font-size: 0.9em;
+}
+
+header {
+	grid-column: 1/3;
+	grid-row: 1/2;
+	background-color: #303549;
+	font-size: 0.9em;
+
+}
+
+main {
+	grid-column: 2/3;
+	grid-row: 2/3;
+
+}
+
+footer {
+	grid-column: 1/3;
+	grid-row: 3/4;
+	background-color: #181e2c;
+}
+
+/*header*/
+
+header {
+	position: relative;
+}
+
+#name {
+	text-align: center;
+	margin: 0;
+	color: #7d859c;
+}
+
+.topmenu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.topmenu li {
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+	display: table;
+}
+
+.topmenu li:hover {
+	background-color: #202538;
+}
+
+/*
+.topmenu li:last-of-type {
+	padding: 0 10px 0 15px;
+
+}
+*/
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.topmenu li a {
+
+	color: #ffffff;
+	display: block;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 10px 5px 10px 5px;
+}
+
+
+/*side meniu*/
+
+.navmenu ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navmenu ul li a {
+	text-decoration: none;
+	color: #7d859c;
+	padding: 10px 15px 10px 15px;
+	display: block;
+}
+
+.navmenu ul li a:hover {
+	background-color: #16a4fa;
+	color: #ffffff;
+}
+
+.menu-icon {
+	padding-right: 10px;
+}
+
+/*footer*/
+
+.help {
+	float: right;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.help li {
+	float: left;
+	padding: 10px 15px 10px 15px;
+}
+
+.help li:hover {
+	background-color: #303549;
+}
+
+.help li a {
+	text-decoration: none;
+	color: #ffffff;
+	display: block;
+
+}
+/*top grey part*/
+
+#browse {
+	margin-left: 40px;
+}
+.toppart {
+	height: 7%;
+}
+
+.toppart ul li {
+	list-style-type: none;
+	display: inline;
+	padding-right: 10px;
+}
+
+.toppart ul li a {
+	list-style-type: none;
+	text-decoration: none;
+
+}
+
+.toppart ul li a:hover {
+	color: white;
+	background-color: blue;
+	border-radius: 10%;
+	border-radius: 10%;
+}
+
+.inlinemenu {
+	float:left;
+	display: inline;
+}
+
+/*search input*/
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+
+.search-container {
+	float: right;
+	display: inline;
+	position: relative;
+    box-sizing: border-box;
+	margin-right: 10px;
+	font-size: 16px;
+
+}
+
+.search-container input {
+	width: 250px;
+	height: 32px;
+
+	margin-bottom: 10px;
+	text-indent: 32px;
+	border-radius: 20px;
+	padding: 5px;
+	padding-right: 100px;
+
+}
+
+.search-container .fa-search {
+	position: absolute;
+	top: 10px;
+	left: 330px;
+}
+
+/*book rating stars*/
+
+.rating {
+	width: 208px;
+
+	display: block;
+}
+
+.rating label {
+	float: left;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	padding-bottom: 10px;
+}
+
+.rating label:not(:first-of-type) {
+	padding-right: 1px;
+}
+
+.rating label:before {
+	content: "\2605";
+	font-size: 20px;
+	color: #CCCCCC;
+	line-height: 10px;
+}
+
+.rating input {
+	display: none;
+}
+
+.rating input:checked ~ label:before,
+.rating:not(:checked) > label:hover:before,
+.rating:not(:checked) > label:hover ~ label:before {
+	color: #F9DF4A;
+}
+
+/*book content*/
+
+.bookName {
+	font-size: 17px;
+}
+
+.book {
+	float: left;
+}
+
+.wholeblock {
+	margin-left: 30px;
+    clear:both;
+}
+
+/*footer navigation*/
+
+.w3-button {
+	border: 10px;
+
+	display: inline;
+	border-radius: 80px;
+
+	background-color: aqua;
+	float: left;
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.cont {
+	margin-left: 50%;
+}
+
+

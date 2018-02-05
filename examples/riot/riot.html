@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Hello Riot.</title>
+  </head>
+  <body>
+    <!-- place the custom tag anywhere inside the body -->
+    <sample></sample>
+    <!-- include the tag -->
+    <script type="riot/tag" src="sample.tag"></script>
+    <!-- include riot.js -->
+    <script src="riot+compiler.js"></script>
+    <!-- mount the tag -->
+    <script>
+      riot.mount('sample')
+    </script>
+  </body>
+</html>
