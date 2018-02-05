@@ -51,10 +51,12 @@ function bookSet(){
         pagedBookList.pageNo = 0;
         break;
     case "p0":
-        pagedBookList.first();
+        //pagedBookList.first();
+        pagedBookList.previous();
         break;
     case "p-1":
-        pagedBookList.last();
+        //pagedBookList.last();
+        pagedBookList.next();
         break;
     default:
         if (/^p[0-9]+$/.test(name)){

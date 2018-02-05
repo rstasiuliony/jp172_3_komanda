@@ -52,6 +52,14 @@ class PagedBookList{
 		this.pageNo = this.noOfPages;
 	}
 
+	previous(){
+        if (this.pageNo > 0) this.pageNo = this.pageNo - 1;
+	}
+
+	next(){
+        if (this.pageNo < this.noOfPages) this.pageNo = this.pageNo + 1;
+	}
+
 	get pageNo(){
 		return this._pageNo;
 	}
