@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Bookstore</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
+	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
+
+	<!-- To be added link to CSS:  -->
+	<link href="css/style.css" rel="stylesheet">
+	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+
+	<!--Required for stars rating and for menu icons:-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="index()">
+	<!--Top black bar:-->
+	<header class="top">
+		<div id="name">
+			<p><i class="fa fa-book menu-icon" aria-hidden="true"></i>Book Store</p>
+		</div>
+		<div class="headermenu">
+			<ul class="topmenu">
+				<!-- Links to be added:-->
+				<li><a href="#">Help Center</a></li>
+				<li><a href="#">Our Support</a></li>
+				<li id="replace"><a href="login.html">Login <i class="fa fa-check-circle " aria-hidden="true"></i></a>
+					<!--Place for drop down.
+					<ul class="topdown">
+					</ul>
+-->
+				</li>
+				<li id="logout" style="visibility: hidden" onclick="logout()">Logout</li>
+			</ul>
+		</div>
+		<script src="js/login.js"></script>
+
+	</header>
+
+	<!--Left side bar:-->
+	<nav class="sidenav">
+		<div class="navmenu">
+			<ul class="mainmenu">
+				<!-- Links to be added:-->
+				<li><a href="#"><i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a></li>
+				<li><a href="#"><i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a></li>
+				<li><a href="#"><i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a></li>
+				<li><a href="#"><i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main>
+		<!--Top grey part:-->
+
+		<h2 id="browse">Browse Available Books</h2>
+		<div class="toppart">
+			<ul class="inlinemenu">
+				<!-- Nuorodos paruoštos, bet dar kol kas niekur neveda-->
+				<li><a href="#">All Books</a></li>
+				<li><a href="#">Most Recent</a></li>
+				<li><a href="#">Most Popular</a></li>
+				<li><a href="#">Free Books</a></li>
+			</ul>
+			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
+			<div class="search-container">
+
+				<span class="fa fa-search"></span>
+				<input placeholder="Enter Keywords">
+
+
+			</div>
+
+		</div>
+
+		<!--Books part:-->
+    <div id="bookList">
+    </div>
+	</main>
+
+	<footer>
+		<!--Footer part:-->
+		<!--        Bubbles:-->
+		<div class="cont" id=" container">
+			<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			<div class="object1" id="one"></div>
+			<div class="object2" id="two"></div>
+			<div class="object3" id="three"></div>
+
+
+			<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+		</div>
+		<!--       Other:-->
+
+		<ul class="help">
+			<li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+				<!--place for down-top menu of settings
+				<ul class="downtop">
+					 
+				</ul>
+-->
+			</li>
+		</ul>
+	</footer>
+  <script src="hyperhtml.js"></script>
+  <script src="bookList.js"></script>
+  <script src="bookListGen.js"></script>
+</body>
+
+</html>

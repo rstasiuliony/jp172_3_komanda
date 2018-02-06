@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>Bookstore</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Denis Chetverikov, Ernesta Duglas, Rasa Valanciunaite, Renata Stasiulionyte, Redas Peskaitis">
 	<meta name="description" content="In this website you can buy most famous books from UK, USA, Australia, India and other countries.">
-
 	<!-- To be added link to CSS:  -->
 	<link href="css/style.css" rel="stylesheet">
-	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <![endif]-->
-
 	<!--Required for stars rating and for menu icons:-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!--Required for modal menus:-->
 	<link rel="stylesheet" href="css/modal.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-
-	<script src="js/react.js"></script>
-	<script src="js/react-dom.js"></script>
-	<script src="js/babel.js"></script>
-	<script src="js/jmespath.js"></script>
-	<script src="js/bookListLib.js" type="text/babel"></script>
-	<script src="js/bookList.js"></script>
-	<script src="js/menuLib.js" type="text/babel"></script>
-	<script src="js/menuLists.js"></script>
-	<script src="js/webStorage.js"></script>
-
+	<link rel="stylesheet" href="css/login.css">
+	<!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  	<script type="text/javascript" src="js/react/react.js"></script>
+    <script type="text/javascript" src="js/react/react-dom.js"></script>
+    <script type="text/javascript" src="js/react/react-redux.js"></script>
+    <script type="text/javascript" src="js/react/babel.js"></script>
+	<script type="text/javascript" src="js/misc/utils.js"></script>
+	<script type="text/javascript" src="js/misc/jmespath.js"></script>
+	<script type="text/babel" src="js/books/book-list-lib.js"></script>
+	<script type="text/javascript" src="js/books/book-list-data.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<!-- <script src="js/menu/menu-list-data.js" type="text/babel"></script> -->
+	<!-- <script src="js/menu/menu-list-lib.js" type="text/babel"></script> -->
+	<!-- <script src="js/misc/webStorage.js"></script> -->
 </head>
-
-<body onload="index()">
+<body>
 	<!--Top black bar:-->
 	<header class="top">
 		<div class="name">
@@ -39,74 +37,105 @@
 		<div class="headermenu">
 			<ul class="topmenu">
 				<!-- Links to be added:-->
-				<li><a href="#" onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a></li>
-				<li><a href="#" onClick="document.getElementById('id03').style.display='block'" class="">Our Support</a></li>
-				<li id="replace"><a href="#" onclick="document.getElementById('id01').style.display='block'">Login <i class="fa fa-check-circle" aria-hidden="true"></i></a>
-					<div id="id01" class="w3-modal">
-						<div class="w3-modal-content">
-							<div class="w3-container">
-								<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-								<div class="include-login-html">
-									<script>
-										$(".include-login-html").load("login.html");
-									</script>
+				<li>
+					<a href="#" onClick="document.getElementById('id02').style.display='block'" class="">Help Center</a>
+				</li>
+				<li>
+					<a href="#" onClick="document.getElementById('id03').style.display='block'" class="">Our Support</a>
+				</li>
+				<li id="login" style="display:table;">
+					<a href="#" onclick="document.getElementById('id01').style.display='block'">
+						Login
+						<i class="fa fa-check-circle" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li id="username" style="display:none;"></li>
+				<li id="logout" style="visibility: hidden" onclick="logout()">
+					<a href="#">Logout</a>
+				</li>
+			</ul>
+		</div>
+		<div id="id01" class="w3-modal">
+			<div class="w3-modal-content">
+				<div class="w3-container">
+					<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+					<div class="include-login-html">
+						<div class="mainStyleForModals">
+							<div>
+								<p id="result"></p>
+							</div>
+							<div class="huglogin">
+								<h3 class="text" id="comingback">Enter your credentials</h3>
+								<div class="login">
+									<label>Username:</label>
+									<br />
+									<input class="labely" type="text" id="loginname" required value="" />
+									<br />
+									<br />
+									<label>Password:</label>
+									<br />
+									<input class="labely" type="password" id="loginpsw" required value="" />
+									<button type="submit" onclick="login()" class="btnn">Login</button>
+								</div>
+							</div>
+							<br />
+							<hr />
+							<div class="hugsignup">
+								<h3 class="text" id="signup">Sign Up if you are here for the first time</h3>
+								<div class="register">
+									<label>Username:</label>
+									<br />
+									<input class="labely" type="text" id="uname" required value="" />
+									<br />
+									<br />
+									<label>Password:</label>
+									<br />
+									<input class="labely" type="password" id="psw" required value="" />
+									<br />
+									<br />
+									<label>Repeat password:</label>
+									<br />
+									<input class="labely" type="password" id="rpsw" required value="" />
+									<br />
+									<br />
+									<label>Email address:</label>
+									<br />
+									<input class="labely" type="email" id="address" required value="" />
+									<button type="submit" onclick="sign()" class="btnn">Sign Up</button>
 								</div>
 							</div>
 						</div>
 					</div>
-				</li>
-				<li id="logout" style="visibility: hidden" onclick="logout()"> <a href="#">Logout</a></li>
-			</ul>
+				</div>
+			</div>
 		</div>
-
 	</header>
-
 	<!--Left side bar:-->
 	<nav class="sidenav">
-		<div class="navmenu">
+		<div id="sidemenu" class="navmenu">
 			<ul class="mainmenu">
 				<!-- Links to be added:-->
-				<li>
-					<a id  = "browse" href="#">
-						<i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a>
-
-				</li>
-				<li>
-					<a id="favourite" href="#">
-
-						<i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a>
-				</li>
+				<li><a id="browse" href="#"><i class="fa fa-globe menu-icon" aria-hidden="true"></i>Browse</a></li>
+				<li><a id="buy" href="#"><i class="fa fa-shopping-cart menu-icon" aria-hidden="true"></i>Buy Books</a></li>
+				<li><a id="favourite" href="#"><i class="fa fa-star menu-icon" aria-hidden="true"></i>Favourite Books</a></li>
+				<li><a id="whishlist" href="#"><i class="fa fa-th-list menu-icon" aria-hidden="true"></i>Wishlist</a></li>
 			</ul>
 		</div>
 	</nav>
-
 	<main>
-
-		<!--MODAL MENUS-->
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p class="about">Something about this book..</p>
-  </div>
-
-</div>
-
+        <!--MODAL MENUS-->
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="about">Something about this book..</p>
+          </div>
+        </div>
 		<div id="id03" class="w3-modal">
 			<div class="w3-modal-content">
 				<div class="w3-container">
 					<span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-
 					<!--Modal menu Support-->
 					<div class="mainStyleForModals">
 						<p>Please fill in the following information</p>
@@ -121,11 +150,10 @@
 								<form action="lastname">
 									<input type="text" name="Last name">
 								</form>
-								<p>Your e-mail address*
-									<p>
-										<form action="email">
-											<input type="text" name="Your e-mail adress">
-										</form>
+								<p>Your e-mail address*</p>
+                                <form action="email">
+                                    <input type="text" name="Your e-mail adress">
+                                </form>
 							</div>
 							<div class="contacts" id="contacts">
 								<p>CONTACTS</p>
@@ -147,7 +175,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!--Modal menu help:-->
 		<div id="id02" class="w3-modal">
 			<div class="w3-modal-content">
@@ -155,7 +182,6 @@
 					<span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 					<div>
 						<div class="mainStyleForModals">
-
 							<div class="up" id="howtopay">
 								<h4>HOW TO PAY</h4>
 								<h5>How can I pay?</h5>
@@ -179,7 +205,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!--Top grey part:-->
 		<h2 class="browse">Browse Available Books</h2>
 		<div class="toppart">
@@ -189,30 +214,23 @@
 				<li><a href="#" id="popularBooks">Most Popular</a></li>
 				<li><a href="#" id="freeBooks">Free Books</a></li>
 			</ul>
-
 			<!--Search field. (Possible solution to use relative/absolute for magnifying glass):-->
 			<div class="search-container">
 				<span class="fa fa-search"></span>
-				<input id = "key" placeholder="Enter Keywords">
+				<input id="key" placeholder="Enter Keywords">
 			</div>
 		</div>
-
 		<!--Books part:-->
 		<div id="bookList"></div>
 	</main>
-
 	<footer>
 		<!--Footer part:-->
 		<!--        Bubbles:-->
-		<div class="cont" id="container">
-			<button class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
-			<div class="object1" id="one"></div>
-			<div class="object2" id="two"></div>
-			<div class="object3" id="three"></div>
-			<button class="nav-button" onclick="plusDivs(+1)">&#10095;</button>
+		<div class="cont bubbles" id="container">
+            <button id="p0" class="nav-button" onclick="plusDivs(-1)">&#10094;</button>
+            <button id="p-1" class="nav-button" onclick="plusDivs(+1)">&#10095;</button>
 		</div>
 		<!--       Other:-->
-
 		<ul class="help">
 			<li>
 				<a href="#" onClick="document.getElementById('id02').style.display='block'">
@@ -220,27 +238,45 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" style="display: none" id="setttings" onclick="document.getElementById('id04').style.display='block'">
+				<a href="#" style="display: none" id="settings" onclick="document.getElementById('id04').style.display='block'">
 					<i class="fa fa-cog" aria-hidden="true"></i>
 				</a>
-                <div id="id04" class="w3-modal">
-						<div class="w3-modal-content">
-							<div class="w3-container">
-								<span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-								<div class="include-changep-html">
-									<script>
-										$(".include-changep-html").load("changepassw.html");
-									</script>
+			</li>
+		</ul>
+		<div id="id04" class="w3-modal">
+			<div class="w3-modal-content">
+				<div class="w3-container">
+					<span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+					<div class="include-changep-html">
+						<div class="mainStyleForModals">
+							<div class="mypassw">
+								<h3 class="text" id="changing">Here you can change your password. Enter required details</h3>
+								<div class="oldy">
+									<label>Old password:</label>
+									<br />
+									<input class="labely" type="password" id="opp" required value="" />
+									<br />
+									<br />
+									<label>New password:</label>
+									<br />
+									<input class="labely" type="password" id="oppchanged" required value="" />
+									<br />
+									<br />
+									<label>Repeat new password:</label>
+									<br />
+									<input class="labely" type="password" id="oppchangedrepeated" required value="" />
+									<br />
+									<br />
+									<button type="submit" onclick="changePassword()" class="btnn">Submit</button>
 								</div>
 							</div>
 						</div>
 					</div>
- 			</li>
-		</ul>
+				</div>
+			</div>
+		</div>
 	</footer>
-	<script src="js/final.js" type="text/babel"></script>
-    <script src="js/login.js"></script>
-
+	<script type="text/javascript" src="js/books/paged-book-list.js"></script>
+	<script type="text/babel" src="js/final.js"></script>
 </body>
-
 </html>
