@@ -1,10 +1,10 @@
 class PagedBookList{
 	
-	constructor(newBookList, newPageSize = 10){
-		this._bookList = newBookList;
+	constructor(bookList, pageSize = 10, view = 0){
+		this._bookList = bookList;
 		this._filter = { key : "", value : ""};
-		this.pageSize = newPageSize;
-		this.view = 0
+		this._pageSize = pageSize;
+		this._view = view;
 	}
 
 	_compare (a, b, fieldName){
@@ -41,7 +41,7 @@ class PagedBookList{
 	set pageNo(newPageNo){
 		this._pageNo = newPageNo;
 		this._lower =  this._pageNo * this._pageSize;
-		this._upper = ( this._pageNo + 1) * this._pageSize;
+		this._upper = ( this._pageNo + 1 ) * this._pageSize;
 	}
 
 	first(){
@@ -64,8 +64,8 @@ class PagedBookList{
 		return this._pageNo;
 	}
 
-	set view(newView){
-		this._view = newView; 
+	set view(view){
+		this._view = view; 
 	}
 
 	get view(){

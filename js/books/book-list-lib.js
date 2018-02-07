@@ -35,8 +35,8 @@ function Book(props) {
 	var imgName = `${props.image}`;
 	var imgFile = `images/${props.image}`;
 	var visible1 = [1].includes(props.view) ? "visible" : "hidden";
-	var visible3 = [3].includes(props.view) ? "block" : "none";
-	var visible13 = [1, 3].includes(props.view) ? "block" : "none";
+	var visible3 = [3].includes(props.view) ? "visible" : "hidden";
+	var visible13 = [1, 3].includes(props.view) ? "visible" : "hidden";
     function addToWhishList(id) {
         whishList.add(id);
 	}

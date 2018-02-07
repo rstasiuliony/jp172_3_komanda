@@ -1,5 +1,6 @@
 pagedBookList.sortByName();
 pagedBookList.view = 0;
+pagedBookList.pageNo = 0;
 var bookList = pagedBookList.page;
 
 bookListRun(bookList, 0);
@@ -13,18 +14,22 @@ function bookSet(){
     case "allBooks": 
         pagedBookList.setFilter()
         pagedBookList.sortByName();
+        pagedBookList.pageNo = 0;
         break;
     case "recentBooks":
         pagedBookList.setFilter()
         pagedBookList.sortByYear();
+        pagedBookList.pageNo = 0;
         break;
     case "popularBooks":
         pagedBookList.setFilter()
         pagedBookList.sortByRating();
+        pagedBookList.pageNo = 0;
         break;
     case "freeBooks":
     	pagedBookList.sortByName();
         pagedBookList.setFilter("price", 0)
+        pagedBookList.pageNo = 0;
         break;
     case "browse":
     	pagedBookList.setFilter()
@@ -47,8 +52,8 @@ function bookSet(){
     case "whishlist":
     	pagedBookList.setFilter("whishList", true)
         pagedBookList.sortByName();
-        pagedBookList.view = 3;
         pagedBookList.pageNo = 0;
+        pagedBookList.view = 3;
         break;
     case "p0":
         //pagedBookList.first();
