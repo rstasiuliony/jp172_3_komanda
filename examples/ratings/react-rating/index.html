@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/javascript" src="require.js"></script>
+    <script>
+        var require = Tarp.require;
+    </script>
+    <script type="text/javascript" src="node_modules/react.js"></script>
+    <script type="text/javascript" src="node_modules/react-dom.js"></script>
+    <script type="text/javascript" src="babel.js"></script>
+    <script type="text/babel" src="node_modules/react-rating.js"></script>
+    <script type="text/babel">
+        //var require = Tarp.require;
+        //var React = require('react');
+        //var ReactDOM = require('react-dom');
+        //var Rating = Tarp.require('react-rating');
+        ReactDOM.render(
+            <Rating
+            emptySymbol="fa fa-star-o fa-2x"
+            fullSymbol="fa fa-star fa-2x"
+            fractions={2}
+            />,
+            document.getElementById("root")
+        );
+
+    </script>
+</body>
+</html>
