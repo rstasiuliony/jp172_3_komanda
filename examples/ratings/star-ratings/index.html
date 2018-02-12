@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link id="css-ratings" rel="stylesheet" href="stars.css">
+    <script>
+        const starTotal = 5;
+
+        function setBeforeContent(rules,  newContent){
+            const styleSheets = document.styleSheets;
+            for (sheet of styleSheets) {
+                for (rule of sheet.rules){
+                    if (rules.includes(rule.selectorText))
+                        rule.style.content = newContent;
+                }
+            }
+        }
+
+        setBeforeContent(['.stars-outer::before'], `"${"\\f005".repeat(starTotal)}"`);
+        setBeforeContent(['.stars-inner::before'], `"${"\\f005".repeat(starTotal)}"`);
+    </script>
+</head>
+
+<body>
+    <div id="rating-num"></div>
+    <div id="rating" class="stars-outer" onmousemove="changeStars(event)" onmouseout="revert()" ondblclick="setRating()">
+        <div class="stars-inner"></div>
+    </div>
+    <script src="stars.js"></script>
+</body>
+
+</html>

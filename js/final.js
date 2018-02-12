@@ -1,5 +1,6 @@
 pagedBookList.sortByName();
 pagedBookList.view = 0;
+pagedBookList.pageNo = 0;
 var bookList = pagedBookList.page;
 
 bookListRun(bookList, 0);
@@ -13,18 +14,22 @@ function bookSet(){
     case "allBooks": 
         pagedBookList.setFilter()
         pagedBookList.sortByName();
+        pagedBookList.pageNo = 0;
         break;
     case "recentBooks":
         pagedBookList.setFilter()
         pagedBookList.sortByYear();
+        pagedBookList.pageNo = 0;
         break;
     case "popularBooks":
         pagedBookList.setFilter()
         pagedBookList.sortByRating();
+        pagedBookList.pageNo = 0;
         break;
     case "freeBooks":
     	pagedBookList.sortByName();
         pagedBookList.setFilter("price", 0)
+        pagedBookList.pageNo = 0;
         break;
     case "browse":
     	pagedBookList.setFilter()
@@ -47,8 +52,8 @@ function bookSet(){
     case "whishlist":
     	pagedBookList.setFilter("whishList", true)
         pagedBookList.sortByName();
-        pagedBookList.view = 3;
         pagedBookList.pageNo = 0;
+        pagedBookList.view = 3;
         break;
     case "p0":
         //pagedBookList.first();
@@ -100,24 +105,30 @@ document.getElementById("p-1").onclick=bookSet;
 //     insertAfter(div.firstChild, firstItem);
 //});
 
-var modal = document.getElementById('myModal');
-var modcontent = document.getElementsByClassName('about')[0];
-var span = document.getElementsByClassName("close")[0];
+// var modal = document.getElementById('myModal');
+// var modcontent = document.getElementsByClassName('about')[0];
+// var span = document.getElementsByClassName("close")[0];
 
-span.onclick = function () {
-    modal.style.display = "none";
-}
+// span.onclick = function () {
+//     modal.style.display = "none";
+// }
 
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+// window.onclick = function (event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
 
-document.getElementsByClassName("fa-search")[0].onclick = function () {
+function search() {
     var key = document.getElementById("key").value.toLowerCase();
     var result = new Array();
-    if (key.length < 3) {
+    if (key.length < 1) {
+        pagedBookList.sortByName();
+		pagedBookList.view = 0;
+		pagedBookList.pageNo = 0;
+		bookList = pagedBookList.page;
+		bookListRun(bookList, 0);
+    } else if (key.length < 3) {
         alert("Key word must be at least 3 characters");
     } else {
         for (var i = 0; i < bookList.length; i++) {
@@ -133,3 +144,16 @@ document.getElementsByClassName("fa-search")[0].onclick = function () {
 
     }
 };
+
+
+document.getElementsByClassName("fa-search")[0].onclick = search
+// Get the input field
+document.getElementById("key").addEventListener("keyup", function(event) {
+  // Cancel the default action, if needed
+    event.preventDefault();
+  // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+    // Trigger the button element with a click
+        search();
+    }
+});
