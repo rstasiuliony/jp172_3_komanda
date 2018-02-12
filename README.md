@@ -13,7 +13,7 @@ Sukeisti vietomis kairiojo meniu punktus:
 
 Įkelti reitingus
 
-Padaryta:
+## Padaryta:
 
 Paieška - tuščio lauko paspaudimas nuima paieškos filtrą.
 Modaliniai knygų duomenų langai perkelti į book-list-lib knygų sąrašą.
