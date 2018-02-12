@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="stars.css">
+</head>
+<body>
+    <div class="rating">
+        <span ordNo="1">☆</span><span ordNo="2">☆</span><span ordNo="3">☆</span><span ordNo="4">☆</span><span ordNo="5">☆</span>
+    </div>
+    <script>
+        const tags = document.getElementsByTagName("span");
+        const tagArray = Array.prototype.slice.call(tags);
+        function spanName(){
+            console.log(this);
+            alert(6 - this.attributes["ordNo"].value);
+        }
+        tagArray.map(
+            (el) => el.onclick = spanName
+        );
+    </script>
+</body>
+</html>

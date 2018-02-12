@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src='node_modules/react.js'></script>
+    <script src='node_modules/react-dom.js'></script>
+    <script src='node_modules/prop-types.js'></script>
+    <script src='node_modules/react-stars.js'></script>
+    <script src="scripts/babel.js"></script>
+    <!-- <script type="text/babel" src="scripts/require.js"></script> -->
+    <script type="text/babel">
+        //var require = Tarp.require;
+        //import React from 'react'
+        //import { render } from 'react-dom'
+
+        const ratingChanged = (newRating) => {
+            console.log(newRating)
+        }
+
+        ReactDOM.render(
+            React.createElement(    
+                'ReactStars',
+                { 
+                    count    : 5,
+                    onChange : ratingChanged,
+                    size     : 24,
+                    color2   : '#ffd700'
+                },
+                null
+            ),
+            document.getElementById('root')
+        );
+    </script>
+</body>
+
+</html>
