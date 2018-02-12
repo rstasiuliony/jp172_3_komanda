@@ -210,6 +210,7 @@ var bookListData = [
 
 var whishList = new Set([]);
 var buyList = new Set([]);
+var favoriteList = new Set([]);
 
 // function handleClick(){
 //     modal.style.display = "block";
