@@ -1,5 +1,5 @@
 # jp172_3_komanda
-Projektas skirtas darbui komandose
+Projektas skirtas darbui komandoje
 
 ## Padaryti:
 
@@ -11,6 +11,10 @@ Sukeisti vietomis kairiojo meniu punktus:
 3. Favorites - knygos, turinčios pirmenybę.
 4. Buy - knygų pirkimo krepšelis.
 
-Paieška - tuščio lauko paspaudimas nuima paieškos filtrą.
+Įkelti reitingus
 
-Reitingai - išsiaiškinti, kokios galimybės padaryti be Reacto (vėliau perkelti).
+Padaryta:
+
+Paieška - tuščio lauko paspaudimas nuima paieškos filtrą.
+Modaliniai knygų duomenų langai perkelti į book-list-lib knygų sąrašą.
+Reitingai - padarytas pavyzdys be Reacto (example/star-ratings).
