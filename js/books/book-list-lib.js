@@ -82,9 +82,9 @@ function Book(props) {
 	const itemId = `book${props.book.id}`;
 	const imgName = props.book.image;
 	const imgFile = `images/${props.book.image}`;
-	const visible1 = [1].includes(props.book.view) ? "visible" : "hidden";
-	const visible3 = [3].includes(props.book.view) ? "visible" : "hidden";
-	const visible13 = [1, 3].includes(props.book.view) ? "visible" : "hidden";
+	const visible1 = [1].includes(props.view) ? "visible" : "hidden";
+	const visible3 = [3].includes(props.view) ? "visible" : "hidden";
+	const visible13 = [1, 3].includes(props.view) ? "visible" : "hidden";
     function addToWhishList(id) {
         whishList.add(id);
 	}
@@ -128,6 +128,7 @@ function BookList(props) {
 	const listItems = props.books.map((book) =>
 		<Book
 			key={book.id.toString()}
+            view={props.view}         
 			book={book} />
 	);
 	return (
