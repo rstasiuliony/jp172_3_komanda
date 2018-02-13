@@ -1,4 +1,4 @@
-function Star(props) {
+{/* function Star(props) {
 	const itemId = props.bookid + "star" + props.value;
 	return (
 		<div>
@@ -24,57 +24,60 @@ function StarList(props) {
 		</div>
 	);
 }
+*/}
 
-// function StarList(props) {
-// 	status = {
-// 		rating     : props.rating,
-// 		starTotal  : 5.0,
-// 		step       : 5,
-// 		percentage : 0
-// 	}
+function StarList(props) {
+	var status = {
+		rating     : props.rating,
+		starTotal  : 5.0,
+		step       : 5,
+		percentage : 0
+	}
+    
+    let outerDiv = null;
 
-// 	function setPercentage(newPercentage){
-// 		if (newPercentage < 0) newPercentage = 0;
-// 		if (newPercentage > 100) newPercentage = 100;
-// 		const starPercentage = Math.round(newPercentage / status.step) * status.step;
-// 		this.status.percentage = starPercentage;
-// 	}
+	function setPercentage(newPercentage){
+		if (newPercentage < 0) newPercentage = 0;
+		if (newPercentage > 100) newPercentage = 100;
+		const starPercentage = Math.round(newPercentage / status.step) * status.step;
+		status.percentage = starPercentage;
+	}
 
-// 	setPercentage(status.rating * 100 / status.starTotal);
+	setPercentage(status.rating * 100 / status.starTotal);
 
 // 	function showStars(){
 // 		document.querySelector(`#rating-num`).innerHTML = (percentage * starTotal / 100).toFixed(2); 
 // 		document.querySelector(`#rating .stars-inner`).style.width = `${percentage.toString(10)}%`;
 // 	}
 	
-// 	function changeStars(event) {
-// 		const rect = document.querySelector(`#rating`).getBoundingClientRect();
-// 		setPercentage((event.clientX - rect.left) * 100 / (rect.right - rect.left)) 
-// 		showStars()
-// 	}
+	function changeStars(event) {
+		const rect = outerDiv.getBoundingClientRect();
+		setPercentage((event.clientX - rect.left) * 100 / rect.width) 
+	}
 		
-// 	function revert(){
-// 		setPercentage(rating * 100 / starTotal);
-// 		showStars();
-// 	}
+	function revert(){
+		setPercentage(rating * 100 / starTotal);
+	}
 		
-// 	function setRating(){
-// 		rating = (percentage * starTotal / 100).toFixed(2);
-// 	}
+	function setRating(){
+		rating = (percentage * starTotal / 100).toFixed(2);
+	}
 
-// 	return (
-// 		<div 
-// 			id={props.bookid + "stars"} 
-// 			className="stars-outer" 
-// 			onMouseMove={changeStars(event)} 
-// 			onMouseOut={revert} 
-// 			onDblClick={setRating} >
-// 			<div class="stars-inner"
-// 				style = {`width : ${status.percentage.toString(10)}%`}
-// 			></div>
-// 		</div>
-// 	);
-// }
+	return (
+		<div 
+			id={props.bookid + "stars"} 
+			className="stars-outer" 
+			onMouseMove={changeStars(event)} 
+			onMouseOut={revert} 
+			onDblClick={setRating} 
+            ref={div => { outerDiv = div; }} 
+            >
+			<div className="stars-inner"
+				style = {`width : ${status.percentage.toString(10)}%`}
+			></div>
+		</div>
+	);
+}
 
 
 function Book(props) {

@@ -20,8 +20,8 @@ function showStars(){
 showStars();
 
 function changeStars(event) {
-    const rect = document.querySelector(`#rating`).getBoundingClientRect();
-    setPercentage((event.clientX - rect.left) * 100 / (rect.right - rect.left)) 
+    const rect = event.currentTarget.getBoundingClientRect();
+    setPercentage((event.clientX - rect.left) * 100 / rect.width) 
     showStars()
 }
 
