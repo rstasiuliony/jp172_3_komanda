@@ -1,0 +1,12 @@
+web
+jpa arba hybernate
+h2
+REST?
+
+spring-data
+REST
+https://www.mockaroo.com/
+https://next.json-generator.com/
+https://www.getpostman.com
+
+axios biblioteka

@@ -26,97 +26,57 @@ function StarList(props) {
 }
 */}
 
-
-{/* class StarList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.focusTextInput = this.focusTextInput.bind(this);
-  }
-
-  focusTextInput() {
-    // Explicitly focus the text input using the raw DOM API
-    this.textInput.focus();
-  }
-
-  render() {
-    // Use the `ref` callback to store a reference to the text input DOM
-    // element in an instance field (for example, this.textInput).
-    return (
-      <div>
-        <input
-          type="text"
-          ref={(input) => { this.textInput = input; }} />
-        <input
-          type="button"
-          value="Focus the text input"
-          onClick={this.focusTextInput}
-        />
-      </div>
-    );
-  }
-} */}
-
-class StarList extends React.Component {
-    constructor(props) {
-        super(props);
-        //this.focusTextInput = this.focusTextInput.bind(this);
-        setPercentage(status.rating * 100 / status.starTotal);
-    }
-	
-    status = {
-		rating     : this.props.rating,
+function StarList(props) {
+	var status = {
+		rating     : props.rating,
 		starTotal  : 5.0,
 		step       : 5,
 		percentage : 0
 	}
     
-    outerDivId = this.props.bookid + "stars";
-    outerDiv = null;
+    let outerDiv = null;
 
-    content = (<div 
-        id={this.outerDivId} 
-        className="stars-outer" 
-        onMouseMove={this.changeStars(event)} 
-        onMouseOut={this.revert} 
-        onDblClick={this.setRating}
-        ref={divRef => { 
-        	this.outerDiv = divRef; 
-        }}
-        >
-        <div className="stars-inner"
-            style = {`width : ${status.percentage.toString(10)}%`}
-        ></div>
-    </div>);
-
-	setPercentage(newPercentage){
+	function setPercentage(newPercentage){
 		if (newPercentage < 0) newPercentage = 0;
 		if (newPercentage > 100) newPercentage = 100;
 		const starPercentage = Math.round(newPercentage / status.step) * status.step;
 		status.percentage = starPercentage;
 	}
 
+	setPercentage(status.rating * 100 / status.starTotal);
 
 // 	function showStars(){
 // 		document.querySelector(`#rating-num`).innerHTML = (percentage * starTotal / 100).toFixed(2); 
 // 		document.querySelector(`#rating .stars-inner`).style.width = `${percentage.toString(10)}%`;
 // 	}
 	
-	changeStars(event) {
-		const rect = this.outerDiv.getBoundingClientRect();
+	function changeStars(event) {
+		const rect = outerDiv.getBoundingClientRect();
 		setPercentage((event.clientX - rect.left) * 100 / rect.width) 
 	}
 		
-	revert(){
+	function revert(){
 		setPercentage(rating * 100 / starTotal);
 	}
 		
-	setRating(){
+	function setRating(){
 		rating = (percentage * starTotal / 100).toFixed(2);
 	}
 
-	render() { 
-        return content;
-    }
+	return (
+		<div 
+			id={props.bookid + "stars"} 
+			className="stars-outer" 
+			onMouseMove={changeStars(event)} 
+			onMouseOut={revert} 
+			onDblClick={setRating} 
+            ref={div => { outerDiv = div; }} 
+            >
+			<div className="stars-inner"
+				style = {`width : ${status.percentage.toString(10)}%`}
+			></div>
+		</div>
+	);
 }
 
 
