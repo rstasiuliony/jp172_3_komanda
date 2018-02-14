@@ -1,121 +1,74 @@
-{/* function Star(props) {
-	const itemId = props.bookid + "star" + props.value;
-	return (
-		<div>
-			<input type="radio" id={itemId} name={props.bookid} value={props.value} />
-			<label htmlFor={itemId}></label>
-		</div>
-	);
-}
-
-function StarList(props) {
-	const starNums = Array.apply(null, {length: props.rating}).map(
-        (x, y) => y + 1
-    );
-	const listItems = starNums.map((number) =>
-		<Star 
-            key={number.toString()} 
-            bookid={props.bookid}
-			value={number} />
-	);
-	return (
-		<div className="rating">
-			{listItems}
-		</div>
-	);
-}
-*/}
-
-
-{/* class StarList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.focusTextInput = this.focusTextInput.bind(this);
-  }
-
-  focusTextInput() {
-    // Explicitly focus the text input using the raw DOM API
-    this.textInput.focus();
-  }
-
-  render() {
-    // Use the `ref` callback to store a reference to the text input DOM
-    // element in an instance field (for example, this.textInput).
-    return (
-      <div>
-        <input
-          type="text"
-          ref={(input) => { this.textInput = input; }} />
-        <input
-          type="button"
-          value="Focus the text input"
-          onClick={this.focusTextInput}
-        />
-      </div>
-    );
-  }
-} */}
-
 class StarList extends React.Component {
     constructor(props) {
         super(props);
-        //this.focusTextInput = this.focusTextInput.bind(this);
-        setPercentage(status.rating * 100 / status.starTotal);
-    }
+        this.setPercentage = this.setPercentage.bind(this);
+        this.changeStars = this.changeStars.bind(this);
+        this.showStars = this.showStars.bind(this);
+        this.revert = this.revert.bind(this);
+        this.setRating = this.setRating.bind(this);
+		this.status = {
+            bookid     : props.bookid,
+			rating     : props.rating,
+			starTotal  : props.parameters.starTotal,
+			step       : props.parameters.step,
+			percentage : 0
+		}
+        this.setPercentage(this.status.rating * 100 / this.status.starTotal);
+   		this.outerDivId = this.status.bookid + "stars";
+   		this.outerDiv = null;
+   		this.innerDiv = null;
+   		this.content = (
+            <div 
+                className="stars-outer"
+                onMouseMove={(event) => this.changeStars(event)} 
+                onMouseOut={this.revert} 
+                onClick={this.setRating}
+                ref={outerRef => { 
+                    this.outerDiv = outerRef; 
+                }}
+                >
+                <div 
+                	className="stars-inner"
+                	ref={innerRef => { 
+                    	this.innerDiv = innerRef; 
+                	}}
+                    style = {{width : `${this.status.percentage.toString(10)}%`}}
+                ></div>
+            </div>
+        );
+   }
 	
-    status = {
-		rating     : this.props.rating,
-		starTotal  : 5.0,
-		step       : 5,
-		percentage : 0
-	}
-    
-    outerDivId = this.props.bookid + "stars";
-    outerDiv = null;
-
-    content = (<div 
-        id={this.outerDivId} 
-        className="stars-outer" 
-        onMouseMove={this.changeStars(event)} 
-        onMouseOut={this.revert} 
-        onDblClick={this.setRating}
-        ref={divRef => { 
-        	this.outerDiv = divRef; 
-        }}
-        >
-        <div className="stars-inner"
-            style = {`width : ${status.percentage.toString(10)}%`}
-        ></div>
-    </div>);
-
 	setPercentage(newPercentage){
 		if (newPercentage < 0) newPercentage = 0;
 		if (newPercentage > 100) newPercentage = 100;
-		const starPercentage = Math.round(newPercentage / status.step) * status.step;
-		status.percentage = starPercentage;
+		const starPercentage = Math.round(newPercentage / this.status.step) * this.status.step;
+		this.status.percentage = starPercentage;
 	}
 
-
-// 	function showStars(){
-// 		document.querySelector(`#rating-num`).innerHTML = (percentage * starTotal / 100).toFixed(2); 
-// 		document.querySelector(`#rating .stars-inner`).style.width = `${percentage.toString(10)}%`;
-// 	}
+    showStars(){
+    	//document.querySelector(`#rating-num`).innerHTML = (percentage * starTotal / 100).toFixed(2); 
+    	this.innerDiv.style.width = `${this.status.percentage.toString(10)}%`;
+    }
 	
 	changeStars(event) {
 		const rect = this.outerDiv.getBoundingClientRect();
-		setPercentage((event.clientX - rect.left) * 100 / rect.width) 
+		this.setPercentage((event.clientX - rect.left) * 100 / rect.width)
+		this.showStars();
 	}
 		
 	revert(){
-		setPercentage(rating * 100 / starTotal);
+		this.setPercentage(this.status.rating * 100 / this.status.starTotal);
+		this.showStars();
 	}
 		
 	setRating(){
-		rating = (percentage * starTotal / 100).toFixed(2);
+		this.status.rating = (this.status.percentage * this.status.starTotal / 100).toFixed(2);
+        let result = bookListData.filter(book => book.id == this.status.bookid);
+        result[0].rating = this.status.rating;
 	}
 
 	render() { 
-        return content;
+        return this.content;
     }
 }
 
@@ -125,9 +78,9 @@ function Book(props) {
 	const itemId = `book${props.book.id}`;
 	const imgName = props.book.image;
 	const imgFile = `images/${props.book.image}`;
-	const visible1 = [1].includes(props.view) ? "visible" : "hidden";
-	const visible3 = [3].includes(props.view) ? "visible" : "hidden";
-	const visible13 = [1, 3].includes(props.view) ? "visible" : "hidden";
+	const visible1 = [1].includes(props.parameters.view) ? "visible" : "hidden";
+	const visible3 = [3].includes(props.parameters.view) ? "visible" : "hidden";
+	const visible13 = [1, 3].includes(props.parameters.view) ? "visible" : "hidden";
     function addToWhishList(id) {
         whishList.add(id);
 	}
@@ -145,7 +98,7 @@ function Book(props) {
 			<a href="#" onClick={showDescription}><img src={imgFile} alt={imgName}/></a>
 			<p className="bookName"><a href="#">{props.book.name}</a></p>
 			<p>by <a href="#">{props.book.author}</a></p>
-			<StarList bookid={itemId} rating={props.book.rating} /><br />
+			<StarList bookid={props.book.id} rating={props.book.rating} parameters={props.parameters}/><br />
             <p className={visible13}>Price: {props.book.price}</p>
             <button 
                 id = {`btn${props.book.id}`}
@@ -163,15 +116,14 @@ function Book(props) {
 }
 
 function BookList(props) {
-	console.log(props.view);
 	function closeModal(){
 		const modal = document.getElementById('myModal');
 		modal.style.display = "none";
 	}
-	const listItems = props.books.map((book) =>
+	const listItems = props.bookList.map((book) =>
 		<Book
 			key={book.id.toString()}
-            view={props.view}         
+            parameters={props.parameters}         
 			book={book} />
 	);
 	return (
@@ -187,8 +139,23 @@ function BookList(props) {
 	);
 }
 
+const starTotal = 5;
+const step = 5;
+
+function changeRuleBeforeLoading(sheetsIDs, rulesToChange,  newString){
+	const newContent = `"${newString.repeat(starTotal)}"`;
+    const selector = sheetsIDs.join(", ");
+    const sheets = document.querySelectorAll(selector)
+    for (let sheet of sheets){
+        for (let rule of sheet.sheet.rules){
+            if (rulesToChange.includes(rule.selectorText))
+                rule.style.content = newContent;
+        }
+    }
+}
+
 function bookListRun(list, view){
-    const books = <BookList books={list} view={view} />;
+    const books = <BookList bookList={list} parameters={{starTotal: starTotal, step:step, view:view}} />;
     ReactDOM.render(
         books, 
         document.getElementById("bookList")

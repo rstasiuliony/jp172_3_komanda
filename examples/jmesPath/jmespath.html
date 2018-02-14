@@ -7,61 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <script src="jmespath.js"></script> -->
-    <script src="bookList.js"></script>
+    <script src="jmespath.js"></script>
+    <script src="book-list-data.js"></script>
     <!-- <script src="convert.js"></script> -->
     
     <script>
-        // var result = jmespath.search(
-        //     bookList, 
-        //     "[2:5]"
-        // );
+    
+        //let result = jmespath.search(
+        //    bookListData,
+        //   "[?id==`2`].@.value"
+        //);
         
-        // document.getElementById("result").innerHTML = result;
-    
-        console.log(pagedBookList.page(0));
-        console.log(pagedBookList.page(1));
-    
-        //document.getElementById("result").innerHTML = result;
+        let result = bookListData.filter(book => book.id == 2);
         
-    
-        // result = 
-        // h('div#page', 
-        //     h('div#header',
-        //         h('h1.classy', { attr: "abc", style : { float: 'left'} }, 'h', 2)
-        //     ),
-        //     h('div#menu', 
-        //         { 
-        //             style: {
-        //                 float: 'left',
-        //                 width: '200px'
-        //             }
-        //         },
-        //         h('ul',
-        //             h('li', 'one'),
-        //             h('li', 'two'),
-        //             h('li', 'three')
-        //         )
-        //     ),
-        //     h('div#content', { 
-        //         style: {
-        //                 float: 'left'
-        //             }
-        //         },
-        //         h('h2', 'content title'),
-        //         h('p',
-        //             "so it's just like a templating engine,\n",
-        //             "but easy to use inline with javascript\n"
-        //         ),
-        //         h('p',
-        //             "the intention is for this to be used to create\n",
-        //             "reusable, interactive html widgets. "
-        //         )
-        //     )
-        // );
-    
-        // document.getElementById("result2").innerHTML = result;
-    
+        result[0].rating = 2.5;
+        
+        console.log(result);
+        console.log(bookListData);
     </script>
     </body>
 </html>
