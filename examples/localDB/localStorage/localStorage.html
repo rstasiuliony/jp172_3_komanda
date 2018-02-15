@@ -1,0 +1,23 @@
+<p id="output">See console output!</p>
+<script>
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("Labas", "vakaras");
+    // Retrieve
+    let obj = localStorage.getItem("Labas")
+    console.log("obj:string == ", obj);
+    
+    localStorage.setItem("Objektas", { vienas: 1, du: 2});
+    obj = localStorage.getItem("Objektas");
+    console.log("obj:object.vienas == ", obj.vienas);
+    console.log("obj:object.du == ", obj.du);
+    
+    localStorage.setItem("Objektas", JSON.stringify({ vienas: 1, du: 2}));
+    obj = JSON.parse(localStorage.getItem("Objektas"));
+    console.log("obj:object:parsed.vienas == ", obj.vienas);
+    console.log("obj:object:parsed.du == ", obj.du);
+    
+} else {
+    alert("WebStorage is not supported!")
+}
+</script>
